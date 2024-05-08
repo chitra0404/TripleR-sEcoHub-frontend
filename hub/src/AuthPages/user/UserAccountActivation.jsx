@@ -8,7 +8,6 @@ function UserAccountActivation() {
   const navigate = useNavigate();
 
   const [activated, setActivated] = useState(false);
-  const [done, setDone] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -19,28 +18,22 @@ function UserAccountActivation() {
         setActivated(activated);
       } catch (err) {
         console.error(err);
-        setDone(true);
       }
     };
 
     checkAccountActivation();
   }, [id]);
 
-  const handleActivate = async (id) => {
+  const handleActivate = async () => {
     try {
       setLoading(true);
       await axios.patch(`${Base_Url}/api/activate/${id}`);
       setActivated(true);
-      
       setTimeout(() => {
         navigate("/");
       }, 1000);
     } catch (err) {
       console.error(err);
-      setDone(true);
-      setTimeout(() => {
-        navigate("/");
-      }, 2000);
     } finally {
       setLoading(false);
     }
@@ -57,11 +50,10 @@ function UserAccountActivation() {
             >
               <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-lg-6 col-sm-12">
-                  {/* Render button only if account is not activated */}
                   {!activated && (
                     <button
                       className="btn btn-primary"
-                      onClick={() => handleActivate(id)}
+                      onClick={handleActivate}
                       disabled={loading}
                     >
                       {loading ? "Activating..." : "Click Me to Activate"}
@@ -71,11 +63,7 @@ function UserAccountActivation() {
               </div>
 
               <p>
-                <span>
-                 
-                  {activated ? "Account Activated Successfully" : null}
-                  {done?"Already Account Activated":null }
-                </span>
+                <span>{activated && "Account Activated Successfully"}</span>
               </p>
             </div>
           </div>
