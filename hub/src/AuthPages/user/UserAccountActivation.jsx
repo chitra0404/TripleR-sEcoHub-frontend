@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-// import { Base_Url } from "../config/api";
+ import { Base_Url } from "../../config/api";
 
 function UserAccountActivation() {
   const { id } = useParams();
@@ -14,7 +14,7 @@ function UserAccountActivation() {
     const checkAccountActivation = async () => {
       try {
         // Make an API call to check if the account is already activated
-        const response = await axios.get(`http://localhost:3000/checkacc/${id}`);
+        const response = await axios.get(`${Base_Url}/checkacc/${id}`);
         const { activated } = response.data;
         setActivated(activated);
       } catch (err) {
@@ -27,7 +27,7 @@ function UserAccountActivation() {
   }, [id]);
   const HandleActivate = async (id) => {
     try {
-        await axios.patch(`http://localhost:3000/api/activate/${id}`)
+        await axios.patch(`${Base_Url}/api/activate/${id}`)
       .then(res=>console.log(res));
       setActivated(true);
       setTimeout(() => {
