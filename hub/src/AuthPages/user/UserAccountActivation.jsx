@@ -9,12 +9,11 @@ function UserAccountActivation() {
 
   const [activated, setActivated] = useState(false);
   const [done, setDone] = useState(false);
-  const [loading, setLoading] = useState(false); // Add loading state
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const checkAccountActivation = async () => {
       try {
-        // Make an API call to check if the account is already activated
         const response = await axios.get(`${Base_Url}/checkacc/${id}`);
         const { activated } = response.data;
         setActivated(activated);
@@ -29,7 +28,7 @@ function UserAccountActivation() {
 
   const handleActivate = async (id) => {
     try {
-      setLoading(true); // Set loading state to true
+      setLoading(true);
       await axios.patch(`${Base_Url}/api/activate/${id}`);
       setActivated(true);
       setDone(false);
@@ -43,7 +42,7 @@ function UserAccountActivation() {
         navigate("/");
       }, 2000);
     } finally {
-      setLoading(false); // Set loading state to false
+      setLoading(false);
     }
   };
 
@@ -53,17 +52,17 @@ function UserAccountActivation() {
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
             <div
-              className="card  text-center fw-bold"
+              className="card text-center fw-bold"
               style={{ borderRadius: "1rem", height: "10vw", fontSize: "3vw" }}
             >
               <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-lg-6 col-sm-12">
-                  {/* Disable button when account is activated or when loading */}
+                  {/* Render button only if account is not activated */}
                   {!activated && (
                     <button
                       className="btn btn-primary"
                       onClick={() => handleActivate(id)}
-                      disabled={loading} // Disable button when loading
+                      disabled={loading}
                     >
                       {loading ? "Activating..." : "Click Me to Activate"}
                     </button>
@@ -73,8 +72,8 @@ function UserAccountActivation() {
 
               <p>
                 <span>
-                  {activated ? "Account Activated Successfully" : null}
-                  <span>{done ? "already account activated" : null}</span>
+                  {/* Display appropriate message based on activation status */}
+                  {activated ? "Account Activated Successfully" : done ? "Already Account Activated" : null}
                 </span>
               </p>
             </div>
