@@ -72,8 +72,8 @@ function UserAccountActivation() {
 
               <p>
                 <span>
-                  {/* Display appropriate message based on activation status */}
-                  {activated ? "Account Activated Successfully" : done ? "Already Account Activated" : null}
+                 
+                  {activated ? "Account Activated Successfully" : "Already Account Activated" }
                 </span>
               </p>
             </div>
