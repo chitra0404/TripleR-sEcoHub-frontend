@@ -1,15 +1,16 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
- import { Base_Url } from "../../config/api";
+import { Base_Url } from "../../config/api";
 
 function UserAccountActivation() {
   const { id } = useParams();
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [activated, setActivated] = useState(false);
   const [done, setDone] = useState(false);
-  
+  const [loading, setLoading] = useState(false); // Add loading state
+
   useEffect(() => {
     const checkAccountActivation = async () => {
       try {
@@ -25,21 +26,24 @@ function UserAccountActivation() {
 
     checkAccountActivation();
   }, [id]);
-  const HandleActivate = async (id) => {
+
+  const handleActivate = async (id) => {
     try {
-        await axios.patch(`${Base_Url}/api/activate/${id}`)
-      .then(res=>console.log(res));
+      setLoading(true); // Set loading state to true
+      await axios.patch(`${Base_Url}/api/activate/${id}`);
       setActivated(true);
       setDone(false);
       setTimeout(() => {
-        Navigate("/");
+        navigate("/");
       }, 1000);
     } catch (err) {
       console.error(err);
       setDone(true);
       setTimeout(() => {
-        Navigate("/");
+        navigate("/");
       }, 2000);
+    } finally {
+      setLoading(false); // Set loading state to false
     }
   };
 
@@ -54,21 +58,23 @@ function UserAccountActivation() {
             >
               <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-lg-6 col-sm-12">
-                  <Link>
+                  {/* Disable button when account is activated or when loading */}
+                  {!activated && (
                     <button
                       className="btn btn-primary"
-                      onClick={() => HandleActivate(id)}
+                      onClick={() => handleActivate(id)}
+                      disabled={loading} // Disable button when loading
                     >
-                      Click Me to Activate
+                      {loading ? "Activating..." : "Click Me to Activate"}
                     </button>
-                  </Link>
+                  )}
                 </div>
               </div>
 
               <p>
                 <span>
                   {activated ? "Account Activated Successfully" : null}
-                  <span>{done ?   null:"already account activated"}</span>
+                  <span>{done ? "already account activated" : null}</span>
                 </span>
               </p>
             </div>
