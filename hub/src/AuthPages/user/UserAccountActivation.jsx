@@ -30,6 +30,7 @@ function UserAccountActivation() {
         await axios.patch(`${Base_Url}/api/activate/${id}`)
       .then(res=>console.log(res));
       setActivated(true);
+      setDone(false);
       setTimeout(() => {
         Navigate("/");
       }, 1000);
