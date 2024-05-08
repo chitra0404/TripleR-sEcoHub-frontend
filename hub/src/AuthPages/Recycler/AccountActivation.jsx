@@ -1,45 +1,41 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import { Base_Url } from "../../config/api";
-// import { Base_Url } from "../config/api";
 
 function AccountActivation() {
   const { id } = useParams();
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [activated, setActivated] = useState(false);
-  const [done, setDone] = useState(false);
-  
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     const checkAccountActivation = async () => {
       try {
-        // Make an API call to check if the account is already activated
         const response = await axios.get(`${Base_Url}/checkaccount/${id}`);
         const { activated } = response.data;
         setActivated(activated);
       } catch (err) {
         console.error(err);
-        setDone(true);
       }
     };
 
     checkAccountActivation();
   }, [id]);
-  const HandleActivate = async (id) => {
+
+  const handleActivate = async () => {
     try {
-        await axios.patch(`${Base_Url}/api/re-activate/${id}`)
-      .then(res=>console.log(res));
+      setLoading(true);
+      await axios.patch(`${Base_Url}/api/re-activate/${id}`);
       setActivated(true);
       setTimeout(() => {
-        Navigate("/");
+        navigate("/");
       }, 1000);
     } catch (err) {
       console.error(err);
-      setDone(true);
-      setTimeout(() => {
-        Navigate("/");
-      }, 2000);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -49,27 +45,25 @@ function AccountActivation() {
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
             <div
-              className="card  text-center fw-bold"
+              className="card text-center fw-bold"
               style={{ borderRadius: "1rem", height: "10vw", fontSize: "3vw" }}
             >
               <div className="row d-flex justify-content-center align-items-center">
                 <div className="col-lg-6 col-sm-12">
-                  <Link>
+                  {!activated && (
                     <button
                       className="btn btn-primary"
-                      onClick={() => HandleActivate(id)}
+                      onClick={handleActivate}
+                      disabled={loading}
                     >
-                      Click Me to Activate
+                      {loading ? "Activating..." : "Click Me to Activate"}
                     </button>
-                  </Link>
+                  )}
                 </div>
               </div>
 
               <p>
-                <span>
-                  {activated ? "Account Activated Successfully" : null}
-                  <span>{done ? "already account activated" : null}</span>
-                </span>
+                <span>{activated && "Account Activated Successfully"}</span>
               </p>
             </div>
           </div>
