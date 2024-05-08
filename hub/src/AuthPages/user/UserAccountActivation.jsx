@@ -31,7 +31,7 @@ function UserAccountActivation() {
       setLoading(true);
       await axios.patch(`${Base_Url}/api/activate/${id}`);
       setActivated(true);
-      setDone(false);
+      
       setTimeout(() => {
         navigate("/");
       }, 1000);
@@ -73,7 +73,8 @@ function UserAccountActivation() {
               <p>
                 <span>
                  
-                  {activated ? "Account Activated Successfully" : "Already Account Activated" }
+                  {activated ? "Account Activated Successfully" : null}
+                  {done?"Already Account Activated":null }
                 </span>
               </p>
             </div>
