@@ -145,7 +145,7 @@ console.log(res);
                       >
                         Forgot password?
                       </Link> */}
-                      <p className="mb-1 pb-lg-2 text-light" style={{ color: "#393f81" }}>
+                      {/* <p className="mb-1 pb-lg-2 text-light" style={{ color: "#393f81" }}>
                         Don't have an account?{" "}
                         <Link
                           to="/re-register"
@@ -153,7 +153,7 @@ console.log(res);
                         >
                           Register here
                         </Link>
-                      </p>
+                      </p> */}
                       <p className="small text-muted">
                         Terms of use. Privacy policy
                       </p>

@@ -142,20 +142,13 @@ console.log(res);
                       </div>
                       <Link
                         to="/forgot"
-                        className="small text-muted text-light"
+                        className="small text-muted text-white"
                       >
                         Forgot password?
                       </Link>
-                      <p className="mb-1 pb-lg-2 text-light" style={{ color: "#393f81" }}>
-                        Don't have an account?{" "}
-                        <Link
-                          to="/register"
-                          style={{ color: "white" }}
-                        >
-                          Register here
-                        </Link>
-                      </p>
-                      <p className="small text-muted">
+                      
+                      
+                      <p className="small text-white">
                         Terms of use. Privacy policy
                       </p>
                     </form>
