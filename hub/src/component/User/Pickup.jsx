@@ -30,7 +30,7 @@ function Pickup() {
     },[])
 
     useEffect(() => {
-       const token = localStorage.getItem('token');
+       const token = localStorage.getItem('loggedIn');
       if (token) {
         const { userId } = JSON.parse(atob(token.split('.')[1])); 
         setDetails({ ...details, user: userId });
