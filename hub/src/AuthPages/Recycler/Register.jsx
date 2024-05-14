@@ -18,7 +18,6 @@ function Register() {
     };    
     try {
       await axios.post(`${Base_Url}/api/re-register`, userData)
-      .then(res=>console.log(res));
       
       setRegistered(false)
       setSuccess(true);

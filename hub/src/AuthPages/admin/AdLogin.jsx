@@ -15,7 +15,6 @@ function AdLogin() {
     try {
       const res = await axios.post(`${Base_Url}/api/ad-login`, { email, password});
       const userType=res.data.role;
-console.log(res);
       window.localStorage.setItem("loggedIn", JSON.stringify(res.data.token));
       setInvaild(false);
       setSuccess(true);
