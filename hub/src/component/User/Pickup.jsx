@@ -33,6 +33,7 @@ function Pickup() {
        const token = localStorage.getItem('loggedIn');
       if (token) {
         const { userId } = JSON.parse(atob(token.split('.')[1])); 
+        console.log("userId",userId);
         setDetails({ ...details, user: userId });
       }
     }, []);
