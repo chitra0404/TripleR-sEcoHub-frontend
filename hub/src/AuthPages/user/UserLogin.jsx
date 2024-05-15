@@ -16,7 +16,7 @@ function UserLogin() {
       const res = await axios.post(`${Base_Url}/api/userlogin`, { email, password});
       const userType=res.data.role;
 console.log(res);
-      window.localStorage.setItem("loggedIn", JSON.stringify(res.data.token));
+      window.localStorage.setItem("loggedIn", (res.data.token));
       setInvaild(false);
       setSuccess(true);
       setUserType(userType);

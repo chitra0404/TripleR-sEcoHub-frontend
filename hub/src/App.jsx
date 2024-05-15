@@ -17,8 +17,11 @@ import AdminDashboard from './AuthPages/admin/AdminDashboard'
 import RecyclerDashboard from './AuthPages/Recycler/RecyclerDashboard'
 import UserDashboard from './AuthPages/user/UserDashboard'
 import NotFound from './AuthPages/NotFound'
-import PriceList from './component/User/PriceList'
-import Pickup from './component/User/Pickup'
+import PickupList from './component/recycler/PickupList'
+
+
+
+
 
 
 
@@ -43,8 +46,12 @@ function App() {
         <Route path="/adashboard" element={<AdminDashboard/>}/>
         <Route path="/recyler" element={<RecyclerDashboard/>}/>
         <Route path="/consumer" element={<UserDashboard/>}/>
-        <Route path="/getprice" element={<PriceList/>}/>
-        <Route path="/pickup" element={<Pickup/>}/>
+       
+        <Route path="/pickuplist" element={<PickupList/>}/>
+       
+
+        
+
 
 
         <Route component={NotFound} />

@@ -4,6 +4,7 @@ import Login from './Recycler/Login';
 import AdLogin from './admin/AdLogin';
 import { Link } from 'react-router-dom';
 import TypingEffect from './TypingEffect';
+import Navbar from './user/Navbar';
 
 const LoginPage = () => {
   const [activeTab, setActiveTab] = useState('consumer');
@@ -46,6 +47,7 @@ const LoginPage = () => {
         </div>
         <div className="col-md-6  justify-content-center align-items-center ">
           <div className='container py-5'>
+            
             <ul className="nav nav-tabs justify-content-center align-items-center">
               <li className="nav-item">
                 <button
