@@ -22,7 +22,7 @@ console.log(res);
       setUserType(userType);
       console.log("userType",userType)
       setTimeout(() => {
-         Navigate("/pickup");
+         Navigate("/user");
       }, 500);
     } catch (err) {
       console.log(err);

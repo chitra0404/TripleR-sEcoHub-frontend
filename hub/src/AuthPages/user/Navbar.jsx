@@ -22,35 +22,46 @@ function Navbar() {
         <ul className="nav">
           <li className="nav-item nav1">
             <a className="nav-link  active " aria-current="page" href="#" style={{ textAlign: 'left' }}>
-              <Link className="text-dark" to="/">
-                <h5>Home</h5>
+              <Link className="text-dark" to="/user/location">
+                <h6>Home</h6>
               </Link>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link  active" aria-current="page" href="#">
-              <Link className="text-dark" to="/pickup">
-                <h5>
+              <Link className="text-dark" to="/user/pickup">
+                <h6>
                   RequestPickup
-                </h5>
+                </h6>
               </Link>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link  active" aria-current="page" href="#">
               <Link className="text-dark" to="">
-                <h5>
-                
-                </h5>
+                <h6>
+                What we do
+                </h6>
+              </Link>
+            </a>
+
+          </li>
+          
+          <li className="nav-item">
+            <a className="nav-link  active" aria-current="page" href="#">
+              <Link className="text-dark" to="/user/we-take">
+                <h6>
+                What we Take
+                </h6>
               </Link>
             </a>
           </li>
           
           <a className="nav-link" href="#">
-                <Link className="text-dark" to="/getprice">
-                  <h5>
+                <Link className="text-dark" to="/user/getprice">
+                  <h6>
                     PriceList
-                  </h5>
+                  </h6>
                 </Link>
               </a>
           <li className="nav-item">

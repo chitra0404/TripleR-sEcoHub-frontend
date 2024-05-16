@@ -15,9 +15,15 @@ import ForgetPassword from './AuthPages/user/ForgetPassword'
 import PasswordUpdate from './AuthPages/user/PasswordUpdate'
 import AdminDashboard from './AuthPages/admin/AdminDashboard'
 import RecyclerDashboard from './AuthPages/Recycler/RecyclerDashboard'
-import UserDashboard from './AuthPages/user/UserDashboard'
 import NotFound from './AuthPages/NotFound'
 import PickupList from './component/recycler/PickupList'
+import ConsumerLayout from './component/User/ConsumerLayout'
+import PriceList from './component/User/PriceList'
+import UserDashboard from './AuthPages/user/UserDashboard'
+import Pickup from './component/User/Pickup'
+import WeTake from './component/User/WeTake'
+import SearchRecyclers from './component/User/SearchRecycler'
+import RecyclerMap from './component/User/RecyclerMap'
 
 
 
@@ -45,10 +51,19 @@ function App() {
         <Route path="/reset/:id" element={<PasswordUpdate/>}></Route>
         <Route path="/adashboard" element={<AdminDashboard/>}/>
         <Route path="/recyler" element={<RecyclerDashboard/>}/>
-        <Route path="/consumer" element={<UserDashboard/>}/>
        
         <Route path="/pickuplist" element={<PickupList/>}/>
-       
+        
+        <Route path="/user" element={<ConsumerLayout />}>
+          <Route path="getprice" element={<PriceList />} />
+          <Route path="pickup" element={<Pickup/>} />
+          <Route path="dashboard" element={<UserDashboard />} />
+          <Route path="we-take" element={<WeTake/>}/>
+          <Route path="search" element={<SearchRecyclers/>}/>
+          <Route path="Location" element={<RecyclerMap/>}/>
+
+
+</Route>
 
         
 

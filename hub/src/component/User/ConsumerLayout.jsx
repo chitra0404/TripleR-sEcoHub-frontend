@@ -1,18 +1,18 @@
 // ConsumerLayout.js
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import Navbar from '../../AuthPages/user/Navbar';
-import PriceList from './PriceList';
-import Pickup from './Pickup';
+
 
 const ConsumerLayout = () => {
   return (
     <div>
-      <Navbar />
-  <Routes>
-  <Route path="/getprice" element={<PriceList/>}/>
-        <Route path="/pickup" element={<Pickup/>}/>
-        
-  </Routes>
+   
+  
+  <Navbar />
+      <main style={{ marginTop: '60px' }}>
+        <Outlet />
+      </main>
     </div>
   );
 };
