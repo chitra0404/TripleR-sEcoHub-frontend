@@ -2,20 +2,26 @@ import React from 'react';
 
 function PickupDetails({ pickups }) {
   return (
-    <div className="list-group">
-      {pickups.map((pickup) => (
-        <div key={pickup._id} className="list-group-item">
-          <p><strong>Category:</strong> {pickup.category}</p>
-          <p><strong>City:</strong> {pickup.city}</p>
-          <p><strong>State:</strong> {pickup.state}</p>
-          <p><strong>Address:</strong> {pickup.address}</p>
-          <p><strong>Items:</strong> {pickup.items}</p>
-          {/* <p><strong>Recycler:</strong> {pickup.recycler.name}</p> */}
-          <p><strong>Status:</strong> {pickup.status}</p>
+    <div className='row pt-5'>
+
+    {pickups.map((item, index) => (
+      <div className="card " key={index} style={{ width: '50%' }}>
+        <div className="card-body">
+          <h5 className="card-title">{item.name}</h5>
+          <p className="card-text">Address:{item.address}</p>
+          <p className="card-text">pincode:{item.pincode}</p>
+          <p className="card-text">state:{item.state}</p>
+          <p className="card-text">Mobilenumber:{item.othernumber}</p>
+
+          <p className="card-text"><strong>City:</strong> {item.city}</p>
+          <p className="card-text"><strong>scrapItems:</strong> {item.items}</p>
+          <p className="card-text"><strong>scrapweight:</strong> {item.weight}</p>
+
         </div>
-      ))}
-    </div>
-  );
+      </div>
+         ))}
+      </div>
+  )
 }
 
 export default PickupDetails;

@@ -13,6 +13,7 @@ function Pickup() {
     address: '',
     othernumber: '',
     items: '',
+    weight:'',
     recycler: '',
   });
   const [recyclers, setRecyclers] = useState([]);
@@ -87,6 +88,7 @@ function Pickup() {
         address: '',
         othernumber: '',
         items: '',
+        weight:'',
         recycler: '',
       });
 
@@ -185,6 +187,16 @@ function Pickup() {
             onChange={handleChange}
           />
         </div>
+        <div className="form-outline mb-2">
+          <input
+            type="Number"
+            name="weight"
+            className="form-control"
+            placeholder="Enter weight of scrap in kg"
+            value={details.weight}
+            onChange={handleChange}
+          />
+        </div>
 
         <select
           name="recycler"
@@ -223,19 +235,12 @@ function Pickup() {
   return (
     <section
       className="vh-100 vw-100 pt-6 mt-5 d-flex justify-content-center align-items-center"
-      style={{
-        backgroundImage:
-          'url(https://wallpapercrafter.com/desktop1/611877-green-light-texture-wavy-darkish-backgrounds.jpg)',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundColor: 'antiquewhite',
-      }}
+     
     >
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <ul className="nav nav-tabs justify-content-center align-items-center">
+            <ul className="nav justify-content-center align-items-center">
               <li className="nav-item ">
                 <button
                   className={`nav-link  ${activeTab === 'schedule' ? 'active' : ''}`}

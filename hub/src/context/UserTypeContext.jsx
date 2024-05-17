@@ -6,6 +6,7 @@ export const useUserType = () => useContext(UserTypeContext);
 
 export const UserTypeProvider=({children})=>{
     const [userType,setUserType]=useState("");
+    const [isdark, setisdark] = useState(true)
     const [loading,setLoading]=useState(false);
     const [error,setError]=useState("");
     const handleLogout=()=>{
@@ -16,7 +17,7 @@ export const UserTypeProvider=({children})=>{
       }
 
    return(
-    <UserTypeContext.Provider value={{userType,setUserType,loading,setLoading,handleLogout,error,setError}}>
+    <UserTypeContext.Provider value={{isdark,setisdark,userType,setUserType,loading,setLoading,handleLogout,error,setError}}>
         {children}
     </UserTypeContext.Provider>
    ) 

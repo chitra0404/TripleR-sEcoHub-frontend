@@ -21,12 +21,12 @@ const LoginPage = () => {
   };
 
   return (
-    <section className="vw-100 vh-100 d-flex justify-content-center align-items-center" style={{ backgroundImage: 'url(https://wallpapercrafter.com/desktop1/611877-green-light-texture-wavy-darkish-backgrounds.jpg)', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', backgroundSize: 'cover', backgroundColor: 'antiquewhite' }}>
+    <section className="vw-100 vh-100 d-flex justify-content-center align-items-center">
       <div className='row'>
-        <div className="col-md-6 pt-5 ">
+        <div className="col-md-6 pt-5 "style={{}}>
           <div className=" d-flex justify-content-center align-items-center">
      
-            <h5 className='fw-bold text-dark pt-5'>
+            <h5 className='fw-bold  pt-5'>
               <TypingEffect text="TripleR's EcoHub" colors={['green', 'blue', 'red']} />
               <br/>
               <br/>
@@ -51,7 +51,7 @@ const LoginPage = () => {
             <ul className="nav nav-tabs justify-content-center align-items-center">
               <li className="nav-item">
                 <button
-                  className={`nav-link ${activeTab === 'consumer' ? 'active text-dark' : 'text-light'}`}
+                  className={`nav-link ${activeTab === 'consumer' ? 'active text-dark' : ''}`}
                   onClick={() => handleTabChange('consumer')}
                 >
                   Consumer
@@ -59,7 +59,7 @@ const LoginPage = () => {
               </li>
               <li className="nav-item">
                 <button
-                  className={`nav-link ${activeTab === 'recycler' ? 'active text-dark' : 'text-light'}`}
+                  className={`nav-link ${activeTab === 'recycler' ? 'active text-dark' : ''}`}
                   onClick={() => handleTabChange('recycler')}
                 >
                   Recycler
@@ -67,7 +67,7 @@ const LoginPage = () => {
               </li>
               <li className="nav-item">
                 <button
-                  className={`nav-link ${activeTab === 'admin' ? 'active text-dark' : 'text-light'}`}
+                  className={`nav-link ${activeTab === 'admin' ? 'active text-dark' :''}`}
                   onClick={() => handleTabChange('admin')}
                 >
                   Admin
@@ -76,10 +76,10 @@ const LoginPage = () => {
             </ul>
             <div className="tab-content mt-3">
               {activeTab === 'consumer' && (
-                <div className="tab-pane fade show active text-dark">
+                <div className="tab-pane fade show active">
                   <LoginPa showRegistration={showRegistration} />
                   <p></p>
-                  <Link className=' text-white' onClick={handleToggleRegistration}>
+                  <Link  onClick={handleToggleRegistration}>
                     {showRegistration ? 'Back to Login ' : ' Registration as User'}
                   </Link>
                 </div>

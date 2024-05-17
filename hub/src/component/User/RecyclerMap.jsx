@@ -37,7 +37,7 @@ const RecyclerMap = () => {
   return (
     <div className="container-fluid " style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
       {/* Map Container */}
-      <div style={{ flex: 1, width: '100%' }}>
+      <div className=" " style={{ flex: 1, width: '100%' ,height:"100%"}}>
         <MapContainer center={[13.0827, 80.2707]} zoom={12} style={{ height: '100%', width: '100%' }}>
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

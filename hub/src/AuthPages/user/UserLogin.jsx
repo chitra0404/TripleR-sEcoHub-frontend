@@ -66,7 +66,7 @@ console.log(res);
           
             
                 <div className="col-md-6 w-100  ">
-                  <div className="card-body p-lg-3 text-black">
+                  <div className="card-body p-lg-3 ">
                     <form onSubmit={Formik.handleSubmit}>
                       <div className="d-flex align-items-center ">
                         <i
@@ -77,14 +77,14 @@ console.log(res);
                       </div>
 
                       <h5
-                        className="fw-normal text-light"
+                        className="fw-normal "
                         style={{ letterSpacing: "1px" }}
                       >
                         Sign in as Consumer
                       </h5>
 
                       <div className="form-outline">
-                        <label className="form-label text-light" htmlFor="loginemail">
+                        <label className="form-label " htmlFor="loginemail">
                           Email address :
                         </label>
                         <input
@@ -103,7 +103,7 @@ console.log(res);
                         ) : null}
                       </div>
                       <div className="form-outline mb-2">
-                        <label className="form-label text-light" htmlFor="loginpassword">
+                        <label className="form-label " htmlFor="loginpassword">
                           Password :
                         </label>
                         <input

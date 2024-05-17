@@ -1,16 +1,16 @@
 // ConsumerLayout.js
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Navbar from '../../AuthPages/user/Navbar';
+
+import RecyclerNavbar from '../../AuthPages/Recycler/RecyclerNavbar';
 
 
-const ConsumerLayout = () => {
-  
+const RecyclerLayout = () => {
   return (
     <div>
    
   
-  <Navbar />
+ <RecyclerNavbar/>
       <main style={{ marginTop: '60px' }}>
         <Outlet />
       </main>
@@ -18,4 +18,4 @@ const ConsumerLayout = () => {
   );
 };
 
-export default ConsumerLayout;
+export default RecyclerLayout;
