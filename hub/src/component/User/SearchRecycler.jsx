@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+
+import gsap from "gsap";
+
 import { Base_Url } from '../../config/api'; 
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
@@ -22,6 +25,7 @@ const SearchRecyclers = () => {
             console.error('Error searching recyclers:', err);
         }
     };
+   
 
     return (
         <div>

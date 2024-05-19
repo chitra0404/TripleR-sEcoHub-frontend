@@ -1,0 +1,17 @@
+.button-no-border {
+    border: none;
+    background: none; /* Remove any default button background */
+    padding: 0;       /* Remove default padding */
+    cursor: pointer;  /* Ensure the button still looks clickable */
+  }
+  
+  .button-no-border:focus {
+    outline: none; /* Remove focus outline */
+  }
+  
+  .button-no-border svg {
+    padding-top: 7px;
+    width: 21px;   /* Adjust the size of the icons if needed */
+    height: 21px;
+    color: inherit; /* Inherit text color */
+  }

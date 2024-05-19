@@ -126,24 +126,13 @@ function Register() {
   });
 
   return (
-    <section className="vh-100 vw-100 " >
-      <div className="container py-5 h-100">
-        
-          <div className="row d-flex justify-content-center align-items-center h-100">
-            <div className="col-12 justify-content-center align-items-center   ">
-            <div className="row d-flex justify-content-center align-items-center h-100">
-          <div className="col col-xl-10">
-              <div className="card" style={{ borderRadius: "15px" }}>
-                <div className="row">
-                <div className="col-md-6 col-lg-5 d-none d-md-block">
-                <img src="https://t4.ftcdn.net/jpg/05/77/51/89/240_F_577518920_j95sJ3wU1QAkpydqisDROUQFcp7x0Dvc.jpg" className="img-fluid h-100"/>
-
-                </div>
-                <div className="col-md-6 col-lg-7 d-flex align-items-center">
+    <section className="w-100 h-100 " >
+    <div className="container ">
+      <div className="row ">
+          
+                
+                <div className="col-md-6 pt-5 w-100">
                   <div className="card-body p-lg-3 text-black">
-                  <h2 className="text-uppercase text-center mb-4">
-                    Create an account
-                  </h2>
 
                   <form onSubmit={Formik.handleSubmit}>
                   <div className="form-outline mb-2">
@@ -363,11 +352,8 @@ function Register() {
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      </div>
-      </div>
-      </div>
+      
+      
     </section>
   );
 }

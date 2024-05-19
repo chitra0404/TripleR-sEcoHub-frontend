@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -27,6 +27,8 @@ import RecyclerMap from './component/User/RecyclerMap'
 import RecyclerLayout from './component/recycler/RecyclerLayout'
 import RecyclerList from './component/User/RecyclerList'
 import { useUserType } from './context/UserTypeContext'
+import UserProfile from './component/User/UserProfile'
+
 
 
 
@@ -37,22 +39,10 @@ import { useUserType } from './context/UserTypeContext'
 
 function App() {
  
-  const {isdark,setisdark } = useUserType();
-  const body = document.body;
-
-  const modetoggle=()=>{
-    if(body.classList.contains("light")){
-      body.classList.remove("light");
-      setisdark(!isdark)
-    }
-    else{
-      body.classList.add("light");
-      setisdark(!isdark)
-    }
-  }
+ 
   return (
     <>
-
+ 
   <Routes>
  
   
@@ -84,6 +74,7 @@ function App() {
           <Route path="search" element={<SearchRecyclers/>}/>
           <Route path="Location" element={<RecyclerMap/>}/>
           <Route path="pincode" element={<RecyclerList/>}/>
+          <Route path="profile" element={<UserProfile/>}/>
 
 
 
@@ -96,21 +87,7 @@ function App() {
         <Route component={NotFound} />
         <Route path="*" element={<NotFound />} />
   </Routes>
-  <div className='pt-5 justify-content-end align-items-end'>
-{
-          !isdark ? (<button
-            className=" nav nav-top"
-            onClick={()=>{modetoggle()}}
-          >
-            dark
-          </button>) : (<button
-              className=" nav nav-top"
-              onClick={()=>{modetoggle()}}
-            >
-         light
-            </button>)
-        }   
-</div>
+ 
 
     </>
   )

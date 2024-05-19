@@ -103,7 +103,7 @@ function Pickup() {
   };
 
   const renderForm = () => (
-    <div className="col-12 col-md-6 offset-md-3">
+    <div className="col-12 col-md-6 shadow-lg pt-3 offset-md-3 rounded">
      
       <form onSubmit={handleSubmit}>
         <div className="form-check form-check-inline">
@@ -214,7 +214,7 @@ function Pickup() {
 
         <button
           type="submit"
-          className="btn btn-dark btn-lg btn-block"
+          className="btn btn-success btn-lg btn-block"
           disabled={loading}
         >
           {loading ? 'Submitting...' : 'Submit'}
@@ -234,16 +234,16 @@ function Pickup() {
 
   return (
     <section
-      className="vh-100 vw-100 pt-6 mt-5 d-flex justify-content-center align-items-center"
+      className="vh-100 vw-100 pt-3 mt-3  d-flex justify-content-center align-items-center"
      
     >
-      <div className="container">
-        <div className="row">
-          <div className="col-12">
-            <ul className="nav justify-content-center align-items-center">
+      <div className="container pt-2 ">
+        <div className="row ">
+          <div className="col-12 ">
+            <ul className="nav justify-content-center align-items-center ">
               <li className="nav-item ">
                 <button
-                  className={`nav-link  ${activeTab === 'schedule' ? 'active' : ''}`}
+                  className={`nav-link   ${activeTab === 'schedule' ? 'active' : ''}`}
                   onClick={() => setActiveTab('schedule')}
                 >
                   Pickup Schedule

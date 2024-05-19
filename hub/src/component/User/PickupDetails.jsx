@@ -1,27 +1,44 @@
 import React from 'react';
+import '../../Styles/pickupdetails.css';  // Make sure to create this CSS file
 
 function PickupDetails({ pickups }) {
   return (
-    <div className='row pt-5'>
-
-    {pickups.map((item, index) => (
-      <div className="card " key={index} style={{ width: '50%' }}>
-        <div className="card-body">
-          <h5 className="card-title">{item.name}</h5>
-          <p className="card-text">Address:{item.address}</p>
-          <p className="card-text">pincode:{item.pincode}</p>
-          <p className="card-text">state:{item.state}</p>
-          <p className="card-text">Mobilenumber:{item.othernumber}</p>
-
-          <p className="card-text"><strong>City:</strong> {item.city}</p>
-          <p className="card-text"><strong>scrapItems:</strong> {item.items}</p>
-          <p className="card-text"><strong>scrapweight:</strong> {item.weight}</p>
-
+    <div className='pickup-container'>
+      {pickups.map((item, index) => (
+        <div className="card" key={index}>
+          <div className="card-body bg-success">
+         
+            <div className="card-text-container">
+              <div className="card-text">
+                <strong>Name:</strong>
+                <span>{item.name}</span>
+              </div>
+            
+              <div className="card-text">
+                <strong>Address:</strong>
+                <span>{item.address}</span>
+              </div>
+           
+            
+              <div className="card-text">
+                <strong>Mobileno:</strong>
+                <span>{item.othernumber}</span>
+              </div>
+          
+              <div className="card-text">
+                <strong>Scraps:</strong>
+                <span>{item.items}</span>
+              </div>
+              <div className="card-text">
+                <strong>Weight:</strong>
+                <span>{item.weight}</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-         ))}
-      </div>
-  )
+      ))}
+    </div>
+  );
 }
 
 export default PickupDetails;

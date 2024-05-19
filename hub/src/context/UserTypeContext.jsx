@@ -11,7 +11,7 @@ export const UserTypeProvider=({children})=>{
     const [error,setError]=useState("");
     const handleLogout=()=>{
         localStorage.removeItem("loggedIn");
-       
+     
        
        
       }

@@ -11,7 +11,7 @@ function RecyclerNavbar() {
     };
   return (
     <div>
-    <nav className="navbar fixed-top  p-2 text-white  border-bottom border-3 border-danger">
+    <nav className="navbar fixed-top  p-2 text-white  border-bottom border-3 ">
       <div className="container-fluid">
         <div className="navbar-brand" style={{ textAlign: 'left' }}>
           <Link className="text-dark" to="/recycler/dashboard">
@@ -23,14 +23,14 @@ function RecyclerNavbar() {
           <li className="nav-item nav1">
             <a className="nav-link  active " aria-current="page" href="#" style={{ textAlign: 'left' }}>
               <Link className="text-dark" to="/recycler/pickuplist">
-                <h6>Orders</h6>
+                <h6 className="text-dark">Orders</h6>
               </Link>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link  active" aria-current="page" href="#">
               <Link className="text-dark" to="/recycler/re-register">
-                <h6>
+                <h6 className="text-dark">
                   Recycler
                 </h6>
               </Link>
@@ -39,7 +39,7 @@ function RecyclerNavbar() {
           <li className="nav-item">
             <a className="nav-link  active" aria-current="page" href="#">
               <Link className="text-dark" to="">
-                <h6>
+                <h6 className="text-dark">
                 What we do
                 </h6>
               </Link>
@@ -50,7 +50,7 @@ function RecyclerNavbar() {
           <li className="nav-item">
             <a className="nav-link  active" aria-current="page" href="#">
               <Link className="text-dark" to="">
-                <h6>
+                <h6 className="text-dark">
                 What we Take
                 </h6>
               </Link>
@@ -59,7 +59,7 @@ function RecyclerNavbar() {
           
           <a className="nav-link" href="#">
                 <Link className="text-dark" to="">
-                  <h6>
+                  <h6 className="text-dark">
                     PriceList
                   </h6>
                 </Link>
@@ -68,7 +68,7 @@ function RecyclerNavbar() {
             
               <a className="nav-link" href="#">
                 <Link className="text-dark"  onClick={handleLog}>
-                  <h5>
+                  <h5 className="text-dark">
                    Logout
                   </h5>
                 </Link>

@@ -132,19 +132,18 @@ function PickupList() {
 
   return (
     <div className="container">
+      <h2>your pickups</h2>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <div className="row justify-content-center">
         {pickupRequests.map((item, index) => (
           <div className="col-md-4" key={index} style={{ marginBottom: '20px' }}>
-            <div className="card" style={{ width: '100%' }}>
+            <div className="card  bg-success" style={{ width: '100%' ,height:'100%'}}>
               <div className="card-body">
                 <p className="card-text">Consumer Name: {userName}</p>
-                <p className="card-title">City: {item.city}</p>
-                <p className="card-text">Address: {item.address}</p>
-                <p className="card-text">State: {item.state}</p>
-                <p className="card-text">Phone Number: {item.othernumber}</p>
-                <p className="card-text">Scrap Items: {item.items}</p>
+                <p className="card-text">Address: {item.address},{item.city}</p>
+        <p className="card-text">Phone Number: {item.othernumber}</p>
+                <p className="card-text">Scraps: {item.items}</p>
                 <p className="card-text">Weight: {item.weight} per kg</p>
               </div>
               {item.confirmed ? (
