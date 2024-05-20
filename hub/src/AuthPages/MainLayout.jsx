@@ -21,7 +21,7 @@ const LoginPage = () => {
   };
 
   return (
-    <section className="vw-100 vh-100 d-flex justify-content-center align-items-center">
+    <section className="vw-100 vh-100 d-flex justify-content-center align-items-center" style={{backgroundImage:"url()" ,paddingRight: '60px'}}>
       <div className='row'>
         <div className="col-md-6 pt-5 "style={{}}>
           <div className=" d-flex justify-content-center align-items-center">
@@ -46,7 +46,7 @@ const LoginPage = () => {
           </div>
         </div>
         <div className="col-md-6  justify-content-center align-items-center ">
-          <div className='container py-5'>
+          <div className='container py-5 border-3'>
             
             <ul className="nav nav-tabs justify-content-center align-items-center">
               <li className="nav-item">

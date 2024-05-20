@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../../assets/RRR.png'
 import { useUserType } from '../../context/UserTypeContext';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -15,7 +16,7 @@ function RecyclerNavbar() {
       <div className="container-fluid">
         <div className="navbar-brand" style={{ textAlign: 'left' }}>
           <Link className="text-dark" to="/recycler/dashboard">
-            <h1 className="fs-1 fst-italic text-danger">dashboard</h1>
+          <img src={logo} alt=""></img> 
           </Link>
         </div>
 

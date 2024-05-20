@@ -55,9 +55,9 @@ button{
   background-color: var(--background-color-light);
   color: var(--text-color-light);
 }
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6 ,td{
   color: var(--text-color-dark);
 }
-.light h1, .light h2, .light h3, .light h4, .light h5, .light h6 {
+.light h1, .light h2, .light h3, .light h4, .light h5, .light h6,.light td {
   color: var(--text-color-light);
 }

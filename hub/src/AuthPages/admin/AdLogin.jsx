@@ -15,13 +15,13 @@ function AdLogin() {
     try {
       const res = await axios.post(`${Base_Url}/api/ad-login`, { email, password});
       const userType=res.data.role;
-      window.localStorage.setItem("loggedIn", JSON.stringify(res.data.token));
+      window.localStorage.setItem("loggedInUser", (res.data.token));
       setInvaild(false);
       setSuccess(true);
       setUserType(userType);
       console.log("userType",userType)
       setTimeout(() => {
-         Navigate("/adashboard");
+         Navigate("/admin");
       }, 500);
     } catch (err) {
       console.log(err);

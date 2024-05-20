@@ -108,12 +108,12 @@ const RecyclerMap = () => {
         <h2 className='text-start'>Available recyclers list:</h2>
         <div className="row gap-4 ">
           {recyclers.map((item, index) => (
-            <div key={index} className="col-md-4 col-lg-3 card   shadow-md-4 rounded-lg mb-4" style={{  maxWidth: '300px' }}>
-              <div className="card-body bg-success" >
-                <p className="card-text">{item.name},{item.address}</p>
-               
+            <div key={index} className="col-md-6 col-lg-3 card   shadow-md-6 rounded-lg mb-4" style={{  maxWidth: '300px' }}>
+              <div className="card-body " >
+                <p className="card-text"><strong>Name</strong><span className='text-start px-3'>{item.name}</span></p>
+                <p className="card-text"><strong>Address</strong><span className='text-start px-3'>{item.address}</span></p>
             
-                <p className="card-text"><strong>Available:</strong> {item.availability ? 'Yes' : 'No'}</p>
+                <p className="card-text"><strong>Available:</strong><span className='text-start px-3'> {item.availability ? 'Yes' : 'No'}</span></p>
               </div>
             </div>
           ))}

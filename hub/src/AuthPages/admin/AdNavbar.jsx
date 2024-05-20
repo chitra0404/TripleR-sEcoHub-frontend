@@ -3,11 +3,12 @@ import { useUserType } from '../../context/UserTypeContext';
 import { Link, useNavigate } from 'react-router-dom';
 import Toggle from '../../Toggle';
 import logo from '../../assets/RRR.png'
+
 import { MdOutlineRecycling } from "react-icons/md";
-import UserDashboard from './UserDashboard';
+
 import '../../Styles/style.css'
 
-function Navbar() {
+function AdNavbar() {
   const { handleLogout, isdark, setisdark } = useUserType();
   const navigate = useNavigate();
 
@@ -42,44 +43,44 @@ function Navbar() {
       <nav className="navbar  fixed-top p-2 text-white  border-3 shadow-3xl shadow-bottom-3xl">
         <div className="container-fluid">
           <div className="navbar-brand" style={{ textAlign: 'center' }}>
-            <Link className="text-dark" to ="/user/dashboard">
-         <img src={logo} alt=""></img> </Link>
+            <Link className="text-dark" to ="/admin/dash">
+            <img src={logo} alt=""></img>   </Link>
           </div>
      
           <ul className="nav">
            
             <li className="nav-item nav1">
               <a className="nav-link active" aria-current="page" href="#" style={{ textAlign: 'left' }}>
-                <Link className="text-dark" to="/user/location">
-                  <h6 >Home</h6>
+                <Link className="text-dark" to="/admin/userlist">
+                  <h6 >Consumer</h6>
                 </Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
-                <Link className="text-dark" to="/user/pickup">
-                  <h6 >Pickup</h6>
+                <Link className="text-dark" to="/admin/re-list">
+                  <h6 >Recycler</h6>
                 </Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
-                <Link className="text-dark" to="/user/pincode">
-                  <h6 >search</h6>
+                <Link className="text-dark" to="">
+                  <h6 >Whatwedo</h6>
                 </Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
-                <Link className="text-dark" to="/user/we-take">
-                  <h6 >WhatweTake</h6>
+                <Link className="text-dark" to="">
+                 
                 </Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link className="text-dark" to="/user/getprice">
-                  <h6>PriceList</h6>
+                <Link className="text-dark" to="">
+                
                 </Link>
               </a>
             </li>
@@ -89,8 +90,8 @@ function Navbar() {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link className="text-dark" to="/user/profile" >
-                  <h6 >profile</h6>
+                <Link className="text-dark" to="" >
+                
                 </Link>
               </a>
             </li>
@@ -101,4 +102,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default AdNavbar;

@@ -42,35 +42,44 @@ function RecyclerList() {
   };
 
   return (
-    <div>
+    <div className='vh-100'>
      
-      <div className=''  style={{ width: '50%' ,backgroundColor:"pu"}}>
+      <div className='container vw-100 py-6 '  style={{ height:"50%" ,backgroundImage:'url(https://previews.123rf.com/images/somchai999/somchai9992003/somchai999200300066/142294714-green-leaves-background-nature-green-leaf-wall-texture-of-the-tropical-forest-plant-on-black.jpg)'}}>
+     
+      <div className="search-container p-4  rounded" style={{  borderRadius: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <h2 className='text-white'>Search Recyclers</h2>
         <input
-          type="text"  
+          type="text"
           placeholder="Enter pincode"
           value={pincode}
           onChange={handlePincodeChange}
+          style={{  marginBottom: '10px', padding: '10px',alignItems: 'center' }}
         />
-        <button onClick={handleSearch}>Search</button>
+        <button onClick={handleSearch} className="btn btn-primary">Search</button>
+      </div>
       </div>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      <div className='row pt-5'>
-       
+      <div className='row pt-5' id='#card'>
+       <h2 className='text-start'>Results:</h2>
         {recyclers.map((item, index) => (
-          <div className="card " key={index} style={{ width: '50%' }}>
-            <div className="card-body">
-              <h5 className="card-title">{item.name}</h5>
-              <p className="card-text">Address:{item.address}</p>
-              <p className="card-text">pincode:{item.pincode}</p>
+          <div className="col-md-6" key={index}>
+          <div className="card mb-4 shadow-md-6"  style={{ width: '70%' }}>
+            <div className="card-body ">
+              <p className="card-text text-start "><strong>Name:</strong><span className='text-start px-3'>{item.name}</span></p>
+              <p className="card-text text-start"><strong>City:</strong><span className='text-start px-3'> {item.city}</span></p>
+              <p className="card-text text-start"><strong>Address:</strong><span className='text-start px-3'>{item.address}</span></p>
+             
+              <p className="card-text text-start"><strong>pincode:</strong><span className='text-start px-3'>{item.pincode}</span></p>
 
-              <p className="card-text"><strong>City:</strong> {item.city}</p>
-              <p className="card-text"><strong>Available:</strong> {item.availability ? 'Yes' : 'No'}</p>
+              
+              <p className="card-text text-start"><strong>Available:</strong><span className='text-start px-3'> {item.availability ? 'Yes' : 'No'}</span></p>
             </div>
+          </div>
           </div>
              ))}
           </div>
-     
+   
     </div>
   );
 }

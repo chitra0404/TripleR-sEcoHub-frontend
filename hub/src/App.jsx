@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import { Draggable } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Draggable);
 import UserRegisteration from './AuthPages/user/UserRegisteration'
 import { Route, Routes } from 'react-router-dom'
 import UserAccountActivation from './AuthPages/user/UserAccountActivation'
@@ -28,6 +34,9 @@ import RecyclerLayout from './component/recycler/RecyclerLayout'
 import RecyclerList from './component/User/RecyclerList'
 import { useUserType } from './context/UserTypeContext'
 import UserProfile from './component/User/UserProfile'
+import AdminLayout from './component/admin/AdminLayout'
+import UserList from './component/admin/UserList'
+import RecyclerDetail from './component/admin/RecyclerDetail'
 
 
 
@@ -39,7 +48,73 @@ import UserProfile from './component/User/UserProfile'
 
 function App() {
  
- 
+  const fadeDuration = 1.5; // Duration of fade-in/fade-out animation in seconds
+
+  useEffect(() => {
+    // Fade in the component
+    gsap.fromTo(
+      '#searchposter',
+      { opacity: 0 },
+      {
+        opacity: 1,
+        duration: fadeDuration,
+        ease: 'Power3.easeInOut', // Optional easing function
+      }
+    );
+
+    // Add cleanup when the component unmounts
+    return () => {
+      gsap.fromTo(".card", {y:100 , opacity : 0},{
+        scrollTrigger: {
+          trigger: ".card",
+          start: "top 80%",
+          end: "bottom 20%",
+          toggleActions: "play none none reverse",// Optional: Adds visual markers for testing/debugging
+        },
+        opacity: 100,
+        y: 0,
+        duration: 1,
+        ease: "power3.out",
+        stagger : 0.25
+      });
+
+      gsap.fromTo(".auth", {x:400 , opacity : 0},{x : 0 , opacity: 100 , duration : 2 , ease : "power3.out" , stagger : 0.25});
+
+      
+      gsap.fromTo(".nav" , {x:100 , opacity : 0} , {
+        opacity :100,
+        x:0,
+        duration :1,
+        ease : "power3.out",
+        stagger : 0.25
+      })
+      gsap.fromTo(".line" , {x:0, opacity : 0 , width : 0 } , {
+        scrollTrigger: {
+          trigger: ".line",
+          start: "top 80%",
+          end: "bottom 100%",
+          toggleActions: "play none none reverse",// Optional: Adds visual markers for testing/debugging
+        },
+        opacity :100,
+        x:0,
+        duration :1,
+        ease : "power3.out",
+        width : 1100,
+        delay : 1
+      })
+      // Fade out the component
+      gsap.fromTo(
+        '#searchposter',
+        { opacity: 1 },
+        {
+          opacity: 0,
+          duration: fadeDuration,
+          ease: 'Power3.easeInOut', // Optional easing function
+        }
+      );
+    };
+    Draggable.create(".spin", { inertia: true, type: "rotation", bounds: "body" });
+  }, []);
   return (
     <>
  
@@ -55,8 +130,14 @@ function App() {
     <Route path="/acc/:id" element={<AccountActivation/>}/>
     <Route path="/forgot" element={<ForgetPassword/>}></Route>
         <Route path="/reset/:id" element={<PasswordUpdate/>}></Route>
-        <Route path="/adashboard" element={<AdminDashboard/>}/>
-     
+      
+        <Route path="/admin" element={<AdminLayout />}>
+        <Route path="userlist" element={<UserList/>}/>
+        <Route path="re-list" element={<RecyclerDetail/>}/>
+        <Route path="dash" element={<AdminDashboard/>}/>
+        
+
+</Route>
        
         
         <Route path="/recycler" element={<RecyclerLayout />}>
