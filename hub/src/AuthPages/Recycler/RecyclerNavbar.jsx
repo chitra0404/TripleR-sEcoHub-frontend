@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../../assets/RRR.png'
 import { useUserType } from '../../context/UserTypeContext';
 import { Link, useNavigate } from 'react-router-dom';
+import Toggle from '../../Toggle';
 
 function RecyclerNavbar() {
     const { handleLogout } = useUserType();
@@ -12,7 +13,7 @@ function RecyclerNavbar() {
     };
   return (
     <div>
-    <nav className="navbar fixed-top  p-2 text-white  border-bottom border-3 ">
+    <nav className="navbar fixed-top  p-2 text-white  border-bottom border-3 " id='#searchposter'>
       <div className="container-fluid">
         <div className="navbar-brand" style={{ textAlign: 'left' }}>
           <Link className="text-dark" to="/recycler/dashboard">
@@ -24,59 +25,43 @@ function RecyclerNavbar() {
           <li className="nav-item nav1">
             <a className="nav-link  active " aria-current="page" href="#" style={{ textAlign: 'left' }}>
               <Link className="text-dark" to="/recycler/pickuplist">
-                <h6 className="text-dark">Orders</h6>
+                <h6 >Orders</h6>
               </Link>
             </a>
           </li>
           <li className="nav-item">
             <a className="nav-link  active" aria-current="page" href="#">
               <Link className="text-dark" to="/recycler/re-register">
-                <h6 className="text-dark">
+                <h6 >
                   Recycler
                 </h6>
               </Link>
             </a>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <a className="nav-link  active" aria-current="page" href="#">
               <Link className="text-dark" to="">
-                <h6 className="text-dark">
+                <h6 >
                 What we do
                 </h6>
               </Link>
             </a>
 
-          </li>
+          </li> */}
           
-          <li className="nav-item">
-            <a className="nav-link  active" aria-current="page" href="#">
-              <Link className="text-dark" to="">
-                <h6 className="text-dark">
-                What we Take
-                </h6>
-              </Link>
-            </a>
-          </li>
-          
-          <a className="nav-link" href="#">
-                <Link className="text-dark" to="">
-                  <h6 className="text-dark">
-                    PriceList
-                  </h6>
-                </Link>
-              </a>
+         
+        
           <li className="nav-item">
             
-              <a className="nav-link" href="#">
-                <Link className="text-dark"  onClick={handleLog}>
-                  <h5 className="text-dark">
+             
+                  <button onClick={handleLog}>
                    Logout
-                  </h5>
-                </Link>
-              </a>
+                  </button>
+             
           
          
           </li>
+          <li><Toggle/></li>
         </ul>
       </div>
     </nav>
