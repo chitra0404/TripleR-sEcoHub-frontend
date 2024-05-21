@@ -69,5 +69,14 @@
 .input-group {
   display: flex;
   flex-direction: column;
+  border: none;
+  border-bottom: 2px solid; 
+  border-radius: 0;
+  padding: 5px 10px;
+}
+.custom-border {
+  border: 3px solid transparent; 
+  border-radius: 15px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 

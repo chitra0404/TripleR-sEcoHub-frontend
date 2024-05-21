@@ -75,22 +75,22 @@ function AdLogin() {
                         <span className="h1 fw-bold"></span>
                       </div>
 
-                      <h5
+                      {/* <h5
                         className="fw-normal text-light"
                         style={{ letterSpacing: "1px" }}
                       >
                         Sign into your account
-                      </h5>
+                      </h5> */}
 
                       <div className="form-outline">
-                        <label className="form-label text-light" htmlFor="loginemail">
-                          Email address :
+                        <label className="form-label " htmlFor="loginemail">
+                          Email :
                         </label>
                         <input
                           type="email"
                           id="email"
-                          className="form-control form-control-lg"
-                          placeholder="Email address"
+                          className="w-100 input-line"
+                         
                           value={Formik.values.email}
                           onChange={Formik.handleChange}
                           onBlur={Formik.handleBlur}
@@ -101,15 +101,15 @@ function AdLogin() {
                           </span>
                         ) : null}
                       </div>
-                      <div className="form-outline mb-2 text-light">
-                        <label className="form-label" htmlFor="loginpassword">
+                      <div className="form-outline mb-2 ">
+                        <label className="form-label pt-4" htmlFor="loginpassword">
                           Password :
                         </label>
                         <input
                           type="password"
                           id="password"
-                          className="form-control form-control-lg"
-                          placeholder="Enter your Password"
+                          className="w-100 input-line"
+                       
                           value={Formik.values.password}
                           onChange={Formik.handleChange}
                           onBlur={Formik.handleBlur}

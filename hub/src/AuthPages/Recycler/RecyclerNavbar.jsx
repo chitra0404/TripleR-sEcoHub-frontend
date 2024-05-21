@@ -38,16 +38,16 @@ function RecyclerNavbar() {
               </Link>
             </a>
           </li>
-          {/* <li className="nav-item">
+          <li className="nav-item">
             <a className="nav-link  active" aria-current="page" href="#">
-              <Link className="text-dark" to="">
+              <Link className="text-dark" to="/recycler/profile">
                 <h6 >
-                What we do
+               profile
                 </h6>
               </Link>
             </a>
 
-          </li> */}
+          </li>
           
          
         

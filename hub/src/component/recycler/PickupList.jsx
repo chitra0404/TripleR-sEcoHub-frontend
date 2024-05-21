@@ -71,9 +71,9 @@ function PickupList() {
         return pickupRequest;
       });
       setPickupRequests(updatedPickupRequests);
-      console.log(response.data.message);
+      console.log("rate",pickupRequestId);
 
-      // Trigger payment process
+    
       await handlePayment(pickupRequestId, weight, newRate);
     } catch (error) {
       setError('Error updating rate');
@@ -90,17 +90,19 @@ function PickupList() {
 
       const razorpayOptions = {
         key: 'rzp_test_Rak7JNwDPS3zsN', // Replace with your Razorpay public key
-        amount: amount,
+        amount: amount, // Razorpay expects the amount in the smallest unit of the currency
         currency: currency,
         name: 'Recycler',
         description: `Payment for pickup ${pickupRequestId}`,
-        order_id: response.data.id,
+        order_id: orderId,
         handler: async (response2) => {
           try {
             const verifyResponse = await axios.post(`${Base_Url}/api/verifyPayment`, {
               pickupRequestId,
               razorpayPaymentId: response2.razorpay_payment_id,
-              amount,
+              razorpayOrderId: response2.razorpay_order_id,
+              razorpaySignature: response2.razorpay_signature,
+              amount
             });
             console.log("Verification Response:", verifyResponse.data);
             alert('Payment Successful');
@@ -110,9 +112,9 @@ function PickupList() {
           }
         },
         prefill: {
-          name: 'chitra',
-          email: 'chitras0404@gmail.com',
-          contact: '8056777272',
+          name: userName, // Prefill with userName if available
+          email: 'user@example.com', // Replace with actual user email if available
+          contact: '8056777272', // Replace with actual user contact if available
         },
         notes: {
           address: 'Razorpay Corporate Office',
@@ -132,19 +134,19 @@ function PickupList() {
 
   return (
     <div className="container">
-      <h2>your pickups</h2>
+      <h2>Your Pickups</h2>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <div className="row justify-content-center">
         {pickupRequests.map((item, index) => (
           <div className="col-md-4" key={index} style={{ marginBottom: '20px' }}>
-            <div className="card  bg-success" style={{ width: '100%' ,height:'100%'}}>
+            <div className="card bg-success" style={{ width: '100%', height: '100%' }}>
               <div className="card-body">
                 <p className="card-text">Consumer Name: {userName}</p>
-                <p className="card-text">Address: {item.address},{item.city}</p>
-        <p className="card-text">Phone Number: {item.othernumber}</p>
+                <p className="card-text">Address: {item.address}, {item.city}</p>
+                <p className="card-text">Phone Number: {item.othernumber}</p>
                 <p className="card-text">Scraps: {item.items}</p>
-                <p className="card-text">Weight: {item.weight} per kg</p>
+                <p className="card-text">Weight: {item.weight} kg</p>
               </div>
               {item.confirmed ? (
                 <p>Pickup Confirmed!</p>
@@ -153,7 +155,7 @@ function PickupList() {
                   <button className="btn btn-dark btn-lg btn-block" onClick={() => handleConfirmPickup(item._id)}>Confirm Pickup</button>
                   <br />
                   <div>
-                    <input type="number" className="form-control" min="0" placeholder="Enter the rate" value={item.newRate} onChange={(e) => setPickupRequests(pickupRequests.map((request) => request._id === item._id ? { ...request, newRate: e.target.value } : request))} />
+                    <input type="number" className="form-control" min="0" placeholder="Enter the rate" value={item.newRate || ''} onChange={(e) => setPickupRequests(pickupRequests.map((request) => request._id === item._id ? { ...request, newRate: e.target.value } : request))} />
                     <button className="btn btn-primary" onClick={() => handleManualUpdate(item._id, item.newRate, item.weight)}>Update Rate</button>
                     <button className="btn btn-success" onClick={() => handlePayment(item._id, item.weight, item.rate)}>Pay for Pickup</button>
                   </div>

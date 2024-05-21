@@ -9,7 +9,7 @@ import { Draggable } from 'gsap/all';
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(Draggable);
 import UserRegisteration from './AuthPages/user/UserRegisteration'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes , Navigate} from 'react-router-dom'
 import UserAccountActivation from './AuthPages/user/UserAccountActivation'
 import UserLogin from './AuthPages/user/UserLogin'
 import Register from './AuthPages/Recycler/Register'
@@ -37,6 +37,10 @@ import UserProfile from './component/User/UserProfile'
 import AdminLayout from './component/admin/AdminLayout'
 import UserList from './component/admin/UserList'
 import RecyclerDetail from './component/admin/RecyclerDetail'
+import PaymentList from './component/admin/PaymentList';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './component/ProtectedRoute';
+import ProfileEdit from './component/recycler/ProfileEdit';
 
 
 
@@ -118,57 +122,115 @@ function App() {
   return (
     <>
  
-  <Routes>
- 
-  
- <Route path="/"  element={<LoginPage/>}/>
-<Route path="/register"  element={<UserRegisteration/>}/>
-<Route path="/account/:id" element={<UserAccountActivation/>}/>
-<Route path="/adminlogin"  element={<AdLogin/>}/>
-    <Route path="/login" element={<UserLogin/>}/>
+ <AuthProvider>
+    
+        <Routes>
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/register" element={<UserRegisteration />} />
+          <Route path="/account/:id" element={<UserAccountActivation />} />
+          <Route path="/adminlogin" element={<AdLogin />} />
+          <Route path="/login" element={<UserLogin />} />
+          <Route path="/acc/:id" element={<AccountActivation />} />
+          <Route path="/forgot" element={<ForgetPassword />} />
+          <Route path="/reset/:id" element={<PasswordUpdate />} />
+          
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route
+              path="userlist"
+              element={
+                <ProtectedRoute>
+                  <UserList />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="re-list"
+              element={
+                <ProtectedRoute>
+                  <RecyclerDetail />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="dash"
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="paymentlist"
+              element={
+                <ProtectedRoute>
+                  <PaymentList />
+                </ProtectedRoute>
+              }
+            />
+                         <Route path="" element={<Navigate to="/admin/dashboard" />} />
 
-    <Route path="/acc/:id" element={<AccountActivation/>}/>
-    <Route path="/forgot" element={<ForgetPassword/>}></Route>
-        <Route path="/reset/:id" element={<PasswordUpdate/>}></Route>
+          </Route>
+          
+          <Route path="/recycler" element={<RecyclerLayout />}>
+            <Route
+              path="dashboard"
+              element={
+                <ProtectedRoute>
+                  <RecyclerDashboard />
+                </ProtectedRoute>
+              }
+            />
+              <Route path="profile" element={ <ProfileEdit />} />
+            <Route path="pickuplist" element={ <ProtectedRoute><PickupList /></ProtectedRoute>} />
+            <Route path="re-register" element={<ProtectedRoute><Register /></ProtectedRoute>} />
+            <Route path="" element={<Navigate to="/recycler/dashboard" />} />
+
+          </Route>
+          
+          <Route exact path="/user" element={<ConsumerLayout />}>
+            <Route
+              path="getprice"
+              element={
+                <ProtectedRoute>
+                  <PriceList />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="pickup"
+              element={
+                <ProtectedRoute>
+                  <Pickup />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="dashboard"
+              element={
+                <ProtectedRoute>
+                  <UserDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="we-take" element={<WeTake />} />
+            <Route path="search" element={<SearchRecyclers />} />
+            <Route path="Location" element={<RecyclerMap />} />
+            <Route path="pincode" element={<RecyclerList />} />
+            <Route
+              path="profile"
+              element={
+                <ProtectedRoute>
+                  <UserProfile />
+                </ProtectedRoute>
+              }
+            />
+             <Route path="" element={<Navigate to="/user/dashboard" />} />
+          </Route>
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       
-        <Route path="/admin" element={<AdminLayout />}>
-        <Route path="userlist" element={<UserList/>}/>
-        <Route path="re-list" element={<RecyclerDetail/>}/>
-        <Route path="dash" element={<AdminDashboard/>}/>
-        
-
-</Route>
-       
-        
-        <Route path="/recycler" element={<RecyclerLayout />}>
-        <Route path="dashboard" element={<RecyclerDashboard/>}/>
-          <Route path="pickuplist" element={<PickupList/>}/>
-          <Route path="re-register" element={<Register/>}/>
-
-</Route>
-        
-        <Route path="/user" element={<ConsumerLayout />}>
-          <Route path="getprice" element={<PriceList />} />
-          <Route path="pickup" element={<Pickup/>} />
-          <Route path="dashboard" element={<UserDashboard />} />
-          <Route path="we-take" element={<WeTake/>}/>
-          <Route path="search" element={<SearchRecyclers/>}/>
-          <Route path="Location" element={<RecyclerMap/>}/>
-          <Route path="pincode" element={<RecyclerList/>}/>
-          <Route path="profile" element={<UserProfile/>}/>
-
-
-
-</Route>
-
-        
-
-
-
-        <Route component={NotFound} />
-        <Route path="*" element={<NotFound />} />
-  </Routes>
- 
+    </AuthProvider>
 
     </>
   )

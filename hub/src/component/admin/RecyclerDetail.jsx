@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-
+import '../../Styles/admin.css'
 
 import axios from 'axios';
 import { Base_Url } from '../../config/api';
@@ -54,19 +54,19 @@ function RecyclerDetail() {
 
   return (
     <div className=' vh-100 vw-100 justify-content-center mt-5 pt-2'>
-    <h2 className="bg-warning">RecyclerDetails</h2>
-    <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+    <h2 className="bg-warning p-2 text-center">RecyclerDetails</h2>
+    <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
   
 </div>
  
-    <table className='table table-hover'>
+    <table className='table table-hover border border-3 shadow-sm'>
         <thead className='table-dark'>
             <tr>
            
                 <th >recyclerId</th>
                 <th>Name</th>
                 <th>email</th>
-               <th></th>
+               <th>Address</th>
                 
 
 
@@ -79,7 +79,7 @@ function RecyclerDetail() {
             {
     recycler.map((item, index) => (
                  update===item._id?<EditLead item={item} lead={lead} set={setLead} handleEdit={handleEdit}  />:
-                <tr  className="table" key={index}> 
+                <tr   key={index}> 
                 
                     <td >{item._id}</td>
                     <td>{item.name}</td>

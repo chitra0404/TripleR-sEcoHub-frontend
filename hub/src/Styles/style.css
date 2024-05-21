@@ -22,3 +22,14 @@
   .navbar {
     border-top: 3px solid #28a745; /* Green color */
   }
+  .input-line {
+    border: none;
+    border-bottom: 2px solid; /* Adjust the color and thickness as needed */
+    border-radius: 0;
+    padding: 5px 10px;
+  }
+  
+  .input-line:focus {
+    border-bottom: 2px solid ; /* Change the color on focus */
+    outline: none; /* Remove the default outline */
+  }

@@ -65,8 +65,8 @@ function AdNavbar() {
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
-                <Link className="text-dark" to="">
-                  <h6 >Whatwedo</h6>
+                <Link className="text-dark" to="/admin/paymentlist">
+                  <h6 >payment</h6>
                 </Link>
               </a>
             </li>

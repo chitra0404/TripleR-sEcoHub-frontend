@@ -4,9 +4,12 @@ import { useFormik } from "formik";
 import axios from "axios";
  import { Base_Url } from "../../config/api";
 import { useUserType } from "../../context/UserTypeContext";
+import '../../Styles/style.css'
+import { useAuth } from "../../context/AuthContext";
 
 function UserLogin() {
     const {setUserType,loading,setLoading,error,setError}=useUserType();
+    const { login } = useAuth();
   const [success, setSuccess] = useState(false);
   const [invalid, setInvaild] = useState(false);
    const Navigate = useNavigate();
@@ -20,6 +23,7 @@ console.log(res);
       setInvaild(false);
       setSuccess(true);
       setUserType(userType);
+      login(res.data.token)
       console.log("userType",userType)
       setTimeout(() => {
          Navigate("/user");
@@ -76,22 +80,22 @@ console.log(res);
                         <span className="h1 fw-bold"></span>
                       </div>
 
-                      <h5
+                      {/* <h5
                         className="fw-normal "
                         style={{ letterSpacing: "1px" }}
                       >
                         Sign in as Consumer
-                      </h5>
+                      </h5> */}
 
-                      <div className="form-outline">
-                        <label className="form-label " htmlFor="loginemail">
-                          Email address :
+                      <div className="form-outline ">
+                        <label className=" text-start " htmlFor="loginemail">
+                          Email  :
                         </label>
                         <input
                           type="email"
                           id="email"
-                          className="form-control form-control-lg"
-                          placeholder="Email address"
+                          className="w-100 input-line"
+                        
                           value={Formik.values.email}
                           onChange={Formik.handleChange}
                           onBlur={Formik.handleBlur}
@@ -103,14 +107,14 @@ console.log(res);
                         ) : null}
                       </div>
                       <div className="form-outline mb-2">
-                        <label className="form-label " htmlFor="loginpassword">
+                        <label className="form-label pt-4 " htmlFor="loginpassword">
                           Password :
                         </label>
                         <input
                           type="password"
                           id="password"
-                          className="form-control form-control-lg"
-                          placeholder="Enter your Password"
+                          className="w-100 input-line "
+                         
                           value={Formik.values.password}
                           onChange={Formik.handleChange}
                           onBlur={Formik.handleBlur}
@@ -147,11 +151,7 @@ console.log(res);
                         Forgot password?
                       </Link>
                       
-                      
-                      <p className="small text-white">
-                        Terms of use. Privacy policy
-                      </p>
-                    </form>
+                   </form>
                   </div>
                 </div>
               </div>

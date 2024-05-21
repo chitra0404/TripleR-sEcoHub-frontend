@@ -4,9 +4,12 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { Base_Url } from "../../config/api";
 import { useUserType } from "../../context/UserTypeContext";
+import '../../Styles/style.css'
+import { useAuth } from "../../context/AuthContext";
 
 function Login() {
     const {setUserType,loading,setLoading,error,setError}=useUserType();
+    const {login}=useAuth();
   const [success, setSuccess] = useState(false);
   const [invalid, setInvaild] = useState(false);
    const Navigate = useNavigate();
@@ -19,6 +22,7 @@ function Login() {
       setInvaild(false);
       setSuccess(true);
       setUserType(userType);
+      login(res.data.token);
       console.log("userType",userType)
       setTimeout(() => {
          Navigate("/recycler");
@@ -64,7 +68,7 @@ function Login() {
         <div className="row ">
           
                 <div className="col-md-6 w-100">
-                  <div className="card-body p-lg-3 text-black">
+                  <div className="card-body p-lg-3 ">
                     <form onSubmit={Formik.handleSubmit}>
                       <div className="d-flex align-items-center ">
                         <i
@@ -74,22 +78,22 @@ function Login() {
                         <span className="h1 fw-bold"></span>
                       </div>
 
-                      <h5
-                        className="fw-normal text-light"
+                      {/* <h5
+                        className="fw-normal "
                         style={{ letterSpacing: "1px" }}
                       >
                         Sign in as Recycler
-                      </h5>
+                      </h5> */}
 
                       <div className="form-outline">
-                        <label className="form-label text-light" htmlFor="loginemail">
-                          Email address :
+                        <label className="form-label " htmlFor="loginemail">
+                          Email  :
                         </label>
                         <input
                           type="email"
                           id="email"
-                          className="form-control form-control-lg"
-                          placeholder="Email address"
+                          className="w-100 input-line"
+                        
                           value={Formik.values.email}
                           onChange={Formik.handleChange}
                           onBlur={Formik.handleBlur}
@@ -101,14 +105,14 @@ function Login() {
                         ) : null}
                       </div>
                       <div className="form-outline mb-2">
-                        <label className="form-label text-light" htmlFor="loginpassword">
+                        <label className="form-label pt-4 " htmlFor="loginpassword">
                           Password :
                         </label>
                         <input
                           type="password"
                           id="password"
-                          className="form-control form-control-lg"
-                          placeholder="Enter your Password"
+                          className="w-100 input-line"
+                       
                           value={Formik.values.password}
                           onChange={Formik.handleChange}
                           onBlur={Formik.handleBlur}
@@ -153,9 +157,7 @@ function Login() {
                           Register here
                         </Link>
                       </p> */}
-                      <p className="small text-muted">
-                        Terms of use. Privacy policy
-                      </p>
+                     
                     </form>
                   </div>
                 </div>
