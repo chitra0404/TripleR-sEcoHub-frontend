@@ -32,7 +32,7 @@ function Register() {
       mobilenumber
     };
     try {
-      await axios.post(`${Base_Url}/api/RecyclerRegister`, userData)
+      await axios.post(`${Base_Url}/api/re-register`, userData)
 
       setRegistered(false)
       setSuccess(true);
