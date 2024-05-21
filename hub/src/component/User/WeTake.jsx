@@ -18,7 +18,7 @@ function WeTake() {
         <h2  className="text-start">What We Take: Unlocking the Value of Your Scrap with TipleR'sEcoHub</h2>
         <p className="text-start">
 
-Welcome to TripleR'sEcoHub, the leading online scrap buyer that empowers individuals and businesses to turn their scrap materials into valuable assets. At Reuze, we understand the untapped potential in discarded items, and we are committed to unlocking their value through responsible recycling and repurposing. In this page, we will explore the wide range of scrap materials we accept at Reuze, and how you can benefit from selling your scrap to us.</p>
+Welcome to TripleR'sEcoHub, the leading online scrap buyer that empowers individuals and businesses to turn their scrap materials into valuable assets. At Reuze, we understand the untapped potential in discarded items, and we are committed to unlocking their value through responsible recycling and repurposing. In this page, we will explore the wide range of scrap materials we accept at our website, and how you can benefit from selling your scrap to us.</p>
         <p className="text-start">
           <strong>Plastics:</strong> Plastic is a growing concern globally, and at our Website, we are committed to addressing this issue. We accept various types of plastic scrap, such as PET bottles, HDPE containers, PVC pipes, and more. By selling your plastic scrap through our Website, you contribute to reducing plastic pollution and support the circular economy by enabling these materials to be transformed into new products.
         </p>
