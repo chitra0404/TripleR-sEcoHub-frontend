@@ -4,9 +4,11 @@ import { useFormik } from "formik";
 import axios from "axios";
  import { Base_Url } from "../../config/api";
 import { useUserType } from "../../context/UserTypeContext";
+import { useAuth } from "../../context/AuthContext";
 
 function AdLogin() {
     const {setUserType,loading,setLoading,error,setError}=useUserType();
+    const {login}=useAuth();
   const [success, setSuccess] = useState(false);
   const [invalid, setInvaild] = useState(false);
    const Navigate = useNavigate();
@@ -15,10 +17,11 @@ function AdLogin() {
     try {
       const res = await axios.post(`${Base_Url}/api/ad-login`, { email, password});
       const userType=res.data.role;
-      window.localStorage.setItem("loggedInUser", (res.data.token));
+      window.localStorage.setItem("loggedIn", (res.data.token));
       setInvaild(false);
       setSuccess(true);
       setUserType(userType);
+      login(res.data.token);
       console.log("userType",userType)
       setTimeout(() => {
          Navigate("/admin");

@@ -41,6 +41,10 @@ import PaymentList from './component/admin/PaymentList';
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './component/ProtectedRoute';
 import ProfileEdit from './component/recycler/ProfileEdit';
+import QueryForm from './component/recycler/QueryForm';
+import QueryList from './component/admin/QueryList';
+import AdminProfile from './component/admin/AdminProfile';
+import Content from './component/User/Content';
 
 
 
@@ -133,8 +137,10 @@ function App() {
           <Route path="/acc/:id" element={<AccountActivation />} />
           <Route path="/forgot" element={<ForgetPassword />} />
           <Route path="/reset/:id" element={<PasswordUpdate />} />
+        
           
           <Route path="/admin" element={<AdminLayout />}>
+            <Route path="profile" element={<AdminProfile/>}/>
             <Route
               path="userlist"
               element={
@@ -143,6 +149,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            
             <Route
               path="re-list"
               element={
@@ -152,7 +159,7 @@ function App() {
               }
             />
             <Route
-              path="dash"
+              path="dashboard"
               element={
                 <ProtectedRoute>
                   <AdminDashboard />
@@ -164,6 +171,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <PaymentList />
+                </ProtectedRoute>
+              }
+            />
+              <Route
+              path="query"
+              element={
+                <ProtectedRoute>
+                  <QueryList/>
                 </ProtectedRoute>
               }
             />
@@ -180,6 +195,15 @@ function App() {
                 </ProtectedRoute>
               }
             />
+           <Route
+              path="getprice"
+              element={
+               
+                  <PriceList />
+               
+              }
+            />
+              <Route path="query" element={ <QueryForm />} />
               <Route path="profile" element={ <ProfileEdit />} />
             <Route path="pickuplist" element={ <ProtectedRoute><PickupList /></ProtectedRoute>} />
             <Route path="re-register" element={<ProtectedRoute><Register /></ProtectedRoute>} />
@@ -188,14 +212,7 @@ function App() {
           </Route>
           
           <Route exact path="/user" element={<ConsumerLayout />}>
-            <Route
-              path="getprice"
-              element={
-                <ProtectedRoute>
-                  <PriceList />
-                </ProtectedRoute>
-              }
-            />
+            
             <Route
               path="pickup"
               element={
@@ -212,10 +229,19 @@ function App() {
                 </ProtectedRoute>
               }
             />
+              <Route
+              path="getprice"
+              element={
+               
+                  <PriceList />
+               
+              }
+            />
             <Route path="we-take" element={<WeTake />} />
             <Route path="search" element={<SearchRecyclers />} />
             <Route path="Location" element={<RecyclerMap />} />
             <Route path="pincode" element={<RecyclerList />} />
+            <Route path="content" element={<Content />} />
             <Route
               path="profile"
               element={

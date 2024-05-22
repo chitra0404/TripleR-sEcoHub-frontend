@@ -6,15 +6,6 @@ import { Base_Url } from '../../config/api';
 import { useNavigate } from 'react-router-dom';
 
 
-
-
-
-
-
-
-
-
-
 function RecyclerDetail() {
   
     const [recycler, setRecycler] = useState([]);
@@ -53,7 +44,7 @@ function RecyclerDetail() {
   
 
   return (
-    <div className=' vh-100 vw-100 justify-content-center mt-5 pt-2'>
+    <div className=' vh-100 vw-100 justify-content-center mt-5 pt-5'>
     <h2 className="bg-warning p-2 text-center">RecyclerDetails</h2>
     <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
   

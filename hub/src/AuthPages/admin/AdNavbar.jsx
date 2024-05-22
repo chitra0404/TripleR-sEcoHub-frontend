@@ -3,6 +3,7 @@ import { useUserType } from '../../context/UserTypeContext';
 import { Link, useNavigate } from 'react-router-dom';
 import Toggle from '../../Toggle';
 import logo from '../../assets/RRR.png'
+import { LuHome } from "react-icons/lu";
 
 import { MdOutlineRecycling } from "react-icons/md";
 
@@ -38,17 +39,23 @@ function AdNavbar() {
   
 
   return (
-    <div className=' shadow-bottom-3xl'>
+    <div className=' shadow-bottom-3xl  ' style={{ textAlign: 'center' }}>
      
       <nav className="navbar  fixed-top p-2 text-white  border-3 shadow-3xl shadow-bottom-3xl">
         <div className="container-fluid">
           <div className="navbar-brand" style={{ textAlign: 'center' }}>
-            <Link className="text-dark" to ="/admin/dash">
+            <Link className="text-dark" to ="/admin/dashboard">
             <img src={logo} alt=""></img>   </Link>
           </div>
      
           <ul className="nav">
-           
+          <li className="nav-item nav1">
+              <a className="nav-link active" aria-current="page" href="#" style={{ textAlign: 'left' }}>
+                <Link className="text-dark" to="/admin/dashboard">
+                  <h6 ><LuHome />Home</h6>
+                </Link>
+              </a>
+            </li>
             <li className="nav-item nav1">
               <a className="nav-link active" aria-current="page" href="#" style={{ textAlign: 'left' }}>
                 <Link className="text-dark" to="/admin/userlist">
@@ -72,15 +79,15 @@ function AdNavbar() {
             </li>
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="#">
-                <Link className="text-dark" to="">
-                 
+                <Link  to="/admin/query">
+               <h6>Query</h6>  
                 </Link>
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="#">
-                <Link className="text-dark" to="">
-                
+                <Link className="text-dark" to="/admin/profile">
+              <h6>Profile</h6>  
                 </Link>
               </a>
             </li>

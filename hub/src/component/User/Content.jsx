@@ -2,21 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { Base_Url } from '../../config/api';
 import axios from 'axios';
 import { MdOutlineCurrencyRupee } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
-function PriceList() {
-    const [price, setPrice] = useState([]);
+function Content() {
+    const [content, getContent] = useState([]);
 
     useEffect(() => {
-        const fetchPrice = async () => {
+        const fetchContent = async () => {
             try {
-                const res = await axios.get(`${Base_Url}/api/getprice`);
-                setPrice(res.data);
+                const res = await axios.get(`${Base_Url}/api/content`);
+                getContent(res.data);
+                console.log(res.data)
             } catch (err) {
                 console.log("error occurred", err);
             }
         };
 
-        fetchPrice();
+        fetchContent();
     }, []);
 
     return (
@@ -30,15 +32,15 @@ function PriceList() {
           minHeight: '300px',
         }}
       >
-        <h2 className="display-4 font-weight-bolder text-light">PriceList</h2>
+        <h2 className="display-4 font-weight-bolder text-light">blog</h2>
       </div>
-        <div className="card-container " style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
-        {price.map((item, index) => (
+        <div className="card-container pt-5" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+        {content.map((item, index) => (
             <div className="card shadow-lg p-3 mb-10 rounded" key={index} style={{ width: '30%', margin: '10px' }}>
                 <img src={item.image} className="card-img-top" alt="..." style={{ width: '100%', height: '120px', objectFit: 'cover' }} />
                 <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
-                    <p className="card-title ">Rs:{item.price}</p>
+                    <Link className="card-title ">Link:{item.link}</Link>
                 </div>
             </div>
         ))}
@@ -47,4 +49,4 @@ function PriceList() {
     );
 }
 
-export default PriceList;
+export default Content;

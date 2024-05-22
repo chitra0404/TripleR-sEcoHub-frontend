@@ -50,7 +50,7 @@ function Navbar() {
            
             <li className="nav-item nav1">
               <a className="nav-link active" aria-current="page" href="#" style={{ textAlign: 'left' }}>
-                <Link className="text-dark" to="/user/location">
+                <Link className="text-dark" to="/user/dashboard">
                   <h6 >Home</h6>
                 </Link>
               </a>
@@ -59,6 +59,13 @@ function Navbar() {
               <a className="nav-link active" aria-current="page" href="#">
                 <Link className="text-dark" to="/user/pickup">
                   <h6 >Pickup</h6>
+                </Link>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="#">
+                <Link className="text-dark" to="/user/location">
+                  <h6 >Recycler</h6>
                 </Link>
               </a>
             </li>
@@ -83,7 +90,14 @@ function Navbar() {
                 </Link>
               </a>
             </li>
-            <li className="nav-item nav1"><Toggle/></li>
+            <li className="nav-item">
+              <a className="nav-link" href="#">
+                <Link className="text-dark" to="/user/content">
+                  <h6>blog</h6>
+                </Link>
+              </a>
+            </li>
+            
             <li className="nav-item">
               
             </li>
@@ -92,8 +106,10 @@ function Navbar() {
                 <Link className="text-dark" to="/user/profile" >
                   <h6 >profile</h6>
                 </Link>
+                
               </a>
             </li>
+            <li className="nav-item nav1"><Toggle/></li>
           </ul>
         </div>
       </nav>

@@ -133,14 +133,29 @@ function PickupList() {
   };
 
   return (
+    <>
+    <div
+    className="text-white text-center d-flex align-items-center justify-content-center"
+    style={{
+      backgroundImage: 'url(https://previews.123rf.com/images/somchai999/somchai9992003/somchai999200300066/142294714-green-leaves-background-nature-green-leaf-wall-texture-of-the-tropical-forest-plant-on-black.jpg)',
+      backgroundSize: 'cover',
+      width: '100%',
+      minHeight: '300px',
+    }}
+  >
+            <h2 className="display-4 font-weight-bolder text-light">Pickup</h2>
+
+    
+    </div>
     <div className="container">
-      <h2>Your Pickups</h2>
+    
+    
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       <div className="row justify-content-center">
         {pickupRequests.map((item, index) => (
           <div className="col-md-4" key={index} style={{ marginBottom: '20px' }}>
-            <div className="card bg-success" style={{ width: '100%', height: '100%' }}>
+            <div className="card " style={{ width: '100%', height: '100%' }}>
               <div className="card-body">
                 <p className="card-text">Consumer Name: {userName}</p>
                 <p className="card-text">Address: {item.address}, {item.city}</p>
@@ -166,6 +181,7 @@ function PickupList() {
         ))}
       </div>
     </div>
+    </>
   );
 }
 

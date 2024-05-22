@@ -29,7 +29,7 @@ function UserList() {
     };
 
     return (
-        <div className='vh-100 vw-100 justify-content-center mt-5 pt-2'>
+        <div className='vh-100 vw-100 justify-content-center mt-5 pt-5'>
             <h2 className="bg-warning p-2 text-center">Consumer Details</h2>
             <table className='table table-hover border border-3 shadow-sm'>
                 <thead className='table-dark'>

@@ -103,6 +103,7 @@ function Pickup() {
   };
 
   const renderForm = () => (
+    
     <div className="col-12 col-md-6 shadow-lg pt-3 offset-md-3 rounded">
      
       <form onSubmit={handleSubmit}>
@@ -233,10 +234,25 @@ function Pickup() {
   );
 
   return (
+    <>
+    <div
+    className="text-white text-center d-flex align-items-center justify-content-center"
+    style={{
+      backgroundImage: 'url(https://previews.123rf.com/images/somchai999/somchai9992003/somchai999200300066/142294714-green-leaves-background-nature-green-leaf-wall-texture-of-the-tropical-forest-plant-on-black.jpg)',
+      backgroundSize: 'cover',
+      width: '100%',
+      minHeight: '300px',
+    }}
+  >
+            <h2 className="display-4 font-weight-bolder text-light">Pickup</h2>
+
+    
+    </div>
     <section
       className="vh-100 vw-100 pt-3 mt-3  d-flex justify-content-center align-items-center"
      
     >
+      
       <div className="container pt-2 ">
         <div className="row ">
           <div className="col-12 ">
@@ -263,6 +279,7 @@ function Pickup() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

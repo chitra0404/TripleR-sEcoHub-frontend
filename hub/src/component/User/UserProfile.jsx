@@ -14,6 +14,8 @@ function UserProfile() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        address:"",
+        mobilenumber:'',
         cardNumber: '',
         cardExpiry: '',
         cardCVV: ''
@@ -32,9 +34,12 @@ function UserProfile() {
                     }
                 });
                 setUser(response.data);
+                console.log(response.data)
                 setFormData({
                     name: response.data.name,
                     email: response.data.email,
+                    address:response.data.address,
+                    mobilenumber:response.data.mobilenumber,
                     cardNumber: '',
                     cardExpiry: '',
                     cardCVV: ''
@@ -123,22 +128,22 @@ function UserProfile() {
                                 <Col>
                                     <Row sm={6} className="mb-2">
                                         <i className="bi bi-person-fill" style={{ color: '#ff4d88' }}></i>
-                                        <strong>  Name:</strong> 
+                                        <strong className='text-start'>  Name:</strong> {user.name}
                                     </Row>
                                     
                                     <Row sm={6} className="mb-2">
                                         <i className="bi bi-envelope-fill" style={{ color: '#ff4d88' }}></i>
-                                        <strong> Email:</strong> {user.email}
+                                        <strong className='text-start'> Email:</strong> {user.email}
                                     </Row>
                               
                                
                                     <Row sm={6} className="mb-2">
                                         <i className="bi bi-house-fill" style={{ color: '#ff4d88' }}></i>
-                                        <strong> Address:</strong> {user.address}
+                                        <strong className='text-start'> Address:</strong> {user.address}
                                     </Row>
                                     <Row sm={6} className="mb-2">
                                         <i className="bi bi-phone-fill" style={{ color: '#ff4d88' }}></i>
-                                        <strong> Mobile Number:</strong> {user.mobilenumber}
+                                        <strong className='text-start'> Mobile Number:</strong> {user.mobilenumber}
                                     </Row>
                                 </Col>
                             </Card.Text>
@@ -169,6 +174,26 @@ function UserProfile() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         required
+                                    />
+                                </Col>
+                            </Form.Group>
+                             <Form.Group as={Row} controlId="address" className="mb-3">
+                                <Form.Label column sm={3}>address</Form.Label>
+                                <Col sm={9}>
+                                    <Form.Control
+                                        type="text"
+                                        value={formData.address}
+                                        onChange={handleChange}
+                                    />
+                                </Col>
+                            </Form.Group>
+                            <Form.Group as={Row} controlId="mobilenumber" className="mb-3">
+                                <Form.Label column sm={3}>mobilenumber</Form.Label>
+                                <Col sm={9}>
+                                    <Form.Control
+                                        type="number"
+                                        value={formData.mobilenumber}
+                                        onChange={handleChange}
                                     />
                                 </Col>
                             </Form.Group>

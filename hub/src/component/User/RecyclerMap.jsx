@@ -104,7 +104,7 @@ const RecyclerMap = () => {
         </MapContainer>
       </div>
 
-      <div className="container " id="searchposter" style={{ flex: 2,width: '100%', height: '30%'}}>
+      <div className=" container "  style={{ flex: 2,width: '100%', height: '30%'}}>
         <h2 className='text-start'>Available recyclers list:</h2>
         <div className="row gap-4 ">
           {recyclers.map((item, index) => (

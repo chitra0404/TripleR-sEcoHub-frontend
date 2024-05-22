@@ -34,12 +34,12 @@ const PaymentList = () => {
   }
 
   return (
-    <div className="container vh-100 vw-100 justify-content-center mt-5 pt-2">
+    <div className="container vh-100 vw-100 justify-content-center mt-5 pt-5" >
       <h2 className="bg-warning p-2 text-center">Payment Details</h2>
       <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
         {/* Add any additional buttons or filters here */}
       </div>
-      <table className="table table-hover border border-3 shadow-sm">
+      <table className=" table table-hover border border-3 shadow-sm">
         <thead className="table-dark">
           <tr>
             <th>Payment ID</th>
