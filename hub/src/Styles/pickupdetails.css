@@ -7,8 +7,8 @@
   }
   
   .card {
-    background-color: #28a745; /* Equivalent to bg-success */
-    color: white;
+   /* Equivalent to bg-success */
+  
     width: 100%;
     max-width: 600px;
     border-radius: 20px;
@@ -32,9 +32,13 @@
   .card-text-container {
     display: flex;
     flex-direction: column;
-    gap: 8px;
   }
   
+  .card-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
   .card-text {
     display: flex;
     justify-content: space-between;

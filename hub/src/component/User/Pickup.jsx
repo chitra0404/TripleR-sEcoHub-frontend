@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Base_Url } from '../../config/api';
 import axios from 'axios';
-
+import { Base_Url } from '../../config/api';
 import PickupDetails from './PickupDetails';
 
 function Pickup() {
@@ -13,22 +12,23 @@ function Pickup() {
     address: '',
     othernumber: '',
     items: '',
-    weight:'',
+    weight: '',
     recycler: '',
   });
   const [recyclers, setRecyclers] = useState([]);
   const [pickups, setPickups] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [activeTab, setActiveTab] = useState('schedule'); // State to manage active tab
+  const [activeTab, setActiveTab] = useState('schedule');
 
   useEffect(() => {
     const fetchRecyclers = async () => {
       try {
         const res = await axios.get(`${Base_Url}/api/getrecycler`);
+    
         setRecyclers(res.data.message);
       } catch (err) {
-        console.log(err);
+        console.error('Error fetching recyclers:', err);
       }
     };
     fetchRecyclers();
@@ -38,8 +38,7 @@ function Pickup() {
     const token = localStorage.getItem('loggedIn');
     if (token) {
       const { userId } = JSON.parse(atob(token.split('.')[1]));
-      setDetails({ ...details, user: userId });
-      
+      setDetails((prevDetails) => ({ ...prevDetails, user: userId }));
     }
   }, []);
 
@@ -55,7 +54,7 @@ function Pickup() {
         const res = await axios.get(`${Base_Url}/api/pickuprequests`, config);
         setPickups(res.data.message);
       } catch (err) {
-        console.log(err);
+        console.error('Error fetching pickups:', err);
       }
     };
     fetchPickups();
@@ -63,7 +62,8 @@ function Pickup() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setDetails({ ...details, [name]: value });
+    setDetails((prevDetails) => ({ ...prevDetails, [name]: value }));
+    
   };
 
   const handleSubmit = async (event) => {
@@ -82,18 +82,19 @@ function Pickup() {
       console.log('response', response.data);
 
       setDetails({
-        ...details,
+        user: details.user,
+        category: '',
         city: '',
         state: '',
         address: '',
         othernumber: '',
         items: '',
-        weight:'',
+        weight: '',
         recycler: '',
       });
 
-      setPickups([...pickups, response.data]);
-      setActiveTab('details'); // Switch to details tab after submission
+      setPickups((prevPickups) => [...prevPickups, response.data]);
+      setActiveTab('details');
     } catch (error) {
       console.error('Error scheduling pickup:', error);
       setError('Error scheduling pickup. Please try again.');
@@ -103,9 +104,7 @@ function Pickup() {
   };
 
   const renderForm = () => (
-    
     <div className="col-12 col-md-6 shadow-lg pt-3 offset-md-3 rounded">
-     
       <form onSubmit={handleSubmit}>
         <div className="form-check form-check-inline">
           <input
@@ -188,9 +187,10 @@ function Pickup() {
             onChange={handleChange}
           />
         </div>
+
         <div className="form-outline mb-2">
           <input
-            type="Number"
+            type="number"
             name="weight"
             className="form-control"
             placeholder="Enter weight of scrap in kg"
@@ -227,62 +227,55 @@ function Pickup() {
   );
 
   const renderDetails = () => (
-    <div >
-     
+    <div>
       <PickupDetails pickups={pickups} />
     </div>
   );
 
   return (
     <>
-    <div
-    className="text-white text-center d-flex align-items-center justify-content-center"
-    style={{
-      backgroundImage: 'url(https://t4.ftcdn.net/jpg/07/66/01/19/360_F_766011975_FGP3dxr1zJ79UxOTnDaqZT0MH4Elhinl.jpg)',
-      backgroundSize: 'cover',
-      width: '100%',
-      minHeight: '300px',
-    }}
-  >
-            <h2 className="display-4 font-weight-bolder text-light"style={{ fontWeight: '600' }}>Pickup</h2>
-
-    
-    </div>
-    <section
-      className="vh-100 vw-100 pt-3 mt-3  d-flex justify-content-center align-items-center"
-     
-    >
-      
-      <div className="container ">
- 
-        <div className="row ">
-          
-          <div className="col-12 ">
-            
-            <ul className="nav justify-content-center align-items-center ">
-              
-              <li className="nav-item ">
-                <button
-                  className={`nav-link   ${activeTab === 'schedule' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('schedule')}
-                >
-                  Pickup Schedule
-                </button>
-              </li>
-              <li className="nav-item ">
-                <button
-                  className={`nav-link ${activeTab === 'details' ? 'active' : ''}`}
-                  onClick={() => setActiveTab('details')}
-                >
-                  Pickup Details
-                </button>
-              </li>
-            </ul>
-          </div>
-          {activeTab === 'schedule' ? renderForm() : renderDetails()}
-        </div>
+      <div
+        className="text-white text-center d-flex align-items-center justify-content-center"
+        style={{
+          backgroundImage: 'url(https://t4.ftcdn.net/jpg/07/66/01/19/360_F_766011975_FGP3dxr1zJ79UxOTnDaqZT0MH4Elhinl.jpg)',
+          backgroundSize: 'cover',
+          width: '100%',
+          minHeight: '300px',
+        }}
+      >
+        <h2 className="display-4 font-weight-bolder text-light" style={{ fontWeight: '600' }}>
+          Pickup
+        </h2>
       </div>
-    </section>
+      <section
+        className="vh-100 vw-100 pt-3 mt-3 d-flex justify-content-center align-items-center"
+      >
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <ul className="nav justify-content-center align-items-center">
+                <li className="nav-item">
+                  <button
+                    className={`nav-link ${activeTab === 'schedule' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('schedule')}
+                  >
+                    Pickup Schedule
+                  </button>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className={`nav-link ${activeTab === 'details' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('details')}
+                  >
+                    Pickup Details
+                  </button>
+                </li>
+              </ul>
+            </div>
+            {activeTab === 'schedule' ? renderForm() : renderDetails()}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
