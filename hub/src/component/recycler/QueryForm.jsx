@@ -48,13 +48,13 @@ const QueryForm = () => {
     <div
     className="text-white text-center d-flex align-items-center justify-content-center"
     style={{
-      backgroundImage: 'url(https://previews.123rf.com/images/somchai999/somchai9992003/somchai999200300066/142294714-green-leaves-background-nature-green-leaf-wall-texture-of-the-tropical-forest-plant-on-black.jpg)',
+      backgroundImage: 'url(https://t4.ftcdn.net/jpg/07/66/01/19/360_F_766011975_FGP3dxr1zJ79UxOTnDaqZT0MH4Elhinl.jpg)',
       backgroundSize: 'cover',
       width: '100%',
       minHeight: '300px',
     }}
   >
-            <h2 className="display-4 font-weight-bolder text-light">Query</h2>
+            <h2 className="display-4 font-weight-bolder text-light"style={{ fontWeight: '600' }}>Query</h2>
 
     
     </div>

@@ -5,12 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Toggle from '../../Toggle';
 
 function RecyclerNavbar() {
-    const { handleLogout } = useUserType();
-    const navigate = useNavigate();
-    const handleLog = () => {
-      handleLogout();
-      navigate('/');
-    };
+  
     useEffect(() => {
       let lastScrollY = window.scrollY;
       const navbar = document.querySelector('.navbar');
@@ -46,6 +41,14 @@ function RecyclerNavbar() {
         <ul className="nav">
           <li className="nav-item nav1">
             <a className="nav-link  active " aria-current="page" href="#" style={{ textAlign: 'left' }}>
+              <Link className="text-dark" to="/recycler/dashboard">
+                <h6 >Home</h6>
+              </Link>
+            </a>
+          </li>
+      
+          <li className="nav-item nav1">
+            <a className="nav-link  active " aria-current="page" href="#" style={{ textAlign: 'left' }}>
               <Link className="text-dark" to="/recycler/pickuplist">
                 <h6 >Orders</h6>
               </Link>
@@ -56,6 +59,14 @@ function RecyclerNavbar() {
             <a className="nav-link  active " aria-current="page" href="#" style={{ textAlign: 'left' }}>
               <Link className="text-dark" to="/recycler/query">
                 <h6 >query</h6>
+              </Link>
+            </a>
+          </li>
+          
+          <li className="nav-item nav1">
+            <a className="nav-link  active " aria-current="page" href="#" style={{ textAlign: 'left' }}>
+              <Link className="text-dark" to="/recycler/we-take">
+                <h6 >wetake</h6>
               </Link>
             </a>
           </li>
@@ -81,16 +92,7 @@ function RecyclerNavbar() {
           
          
         
-          <li className="nav-item">
-            
-             
-                  <button onClick={handleLog}>
-                   Logout
-                  </button>
-             
-          
-         
-          </li>
+        
           <li><Toggle/></li>
         </ul>
       </div>

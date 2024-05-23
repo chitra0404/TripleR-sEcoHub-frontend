@@ -110,10 +110,10 @@ const RecyclerMap = () => {
           {recyclers.map((item, index) => (
             <div key={index} className="col-md-6 col-lg-3 card   shadow-md-6 rounded-lg mb-4" style={{  maxWidth: '300px' }}>
               <div className="card-body " >
-                <p className="card-text"><strong>Name</strong><span className='text-start px-3'>{item.name}</span></p>
-                <p className="card-text"><strong>Address</strong><span className='text-start px-3'>{item.address}</span></p>
+                <p className="card-text"><strong className='text-start'>Name:</strong><span className='text-end '>{item.name}</span></p>
+                <p className="card-text"><strong className='text-start'>Address</strong><span className='text-center'>{item.address}</span></p>
             
-                <p className="card-text"><strong>Available:</strong><span className='text-start px-3'> {item.availability ? 'Yes' : 'No'}</span></p>
+                <p className="card-text"><strong className='text-start'>Available:</strong><span className='text-center '> {item.availability ? 'Yes' : 'No'}</span></p>
               </div>
             </div>
           ))}

@@ -26,13 +26,13 @@ function Content() {
         <div
         className="text-white text-center d-flex align-items-center justify-content-center"
         style={{
-          backgroundImage: 'url(https://previews.123rf.com/images/somchai999/somchai9992003/somchai999200300066/142294714-green-leaves-background-nature-green-leaf-wall-texture-of-the-tropical-forest-plant-on-black.jpg)',
+          backgroundImage: 'url(https://t4.ftcdn.net/jpg/07/66/01/19/360_F_766011975_FGP3dxr1zJ79UxOTnDaqZT0MH4Elhinl.jpg)',
           backgroundSize: 'cover',
           width: '100%',
           minHeight: '300px',
         }}
       >
-        <h2 className="display-4 font-weight-bolder text-light">blog</h2>
+        <h2 className="display-4 text-light" style={{ fontWeight: '600' }}>blog</h2>
       </div>
         <div className="card-container pt-5" style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
         {content.map((item, index) => (
@@ -40,7 +40,7 @@ function Content() {
                 <img src={item.image} className="card-img-top" alt="..." style={{ width: '100%', height: '120px', objectFit: 'cover' }} />
                 <div className="card-body">
                     <h5 className="card-title">{item.name}</h5>
-                    <Link className="card-title ">Link:{item.link}</Link>
+                    <Link className="card-title" to={item.link} target="_blank" rel="noopener noreferrer">clickhere</Link>
                 </div>
             </div>
         ))}

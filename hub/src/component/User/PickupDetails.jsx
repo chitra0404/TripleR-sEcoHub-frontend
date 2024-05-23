@@ -3,33 +3,29 @@ import '../../Styles/pickupdetails.css';  // Make sure to create this CSS file
 
 function PickupDetails({ pickups }) {
   return (
-    <div className='pickup-container'>
+    <div className=' container  ' >
+      <div className='row '>
       {pickups.map((item, index) => (
-        <div className="card" key={index}>
-          <div className="card-body bg-success">
-         
+        <div className="col  card   shadow-md-6 rounded-lg mb-4" key={index}>
+          <div className="card-body ">
             <div className="card-text-container">
-              <div className="card-text">
+              <div className="card-row">
                 <strong>Name:</strong>
                 <span>{item.name}</span>
               </div>
-            
-              <div className="card-text">
+              <div className="card-row">
                 <strong>Address:</strong>
                 <span>{item.address}</span>
               </div>
-           
-            
-              <div className="card-text">
+              <div className="card-row">
                 <strong>Mobileno:</strong>
                 <span>{item.othernumber}</span>
               </div>
-          
-              <div className="card-text">
+              <div className="card-row">
                 <strong>Scraps:</strong>
                 <span>{item.items}</span>
               </div>
-              <div className="card-text">
+              <div className="card-row">
                 <strong>Weight:</strong>
                 <span>{item.weight}</span>
               </div>
@@ -37,6 +33,7 @@ function PickupDetails({ pickups }) {
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 }

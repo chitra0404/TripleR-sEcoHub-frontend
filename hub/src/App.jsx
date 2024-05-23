@@ -56,10 +56,10 @@ import Content from './component/User/Content';
 
 function App() {
  
-  const fadeDuration = 1.5; // Duration of fade-in/fade-out animation in seconds
+  const fadeDuration = 1.5; 
 
   useEffect(() => {
-    // Fade in the component
+    
     gsap.fromTo(
       '#searchposter',
       { opacity: 0 },
@@ -203,6 +203,7 @@ function App() {
                
               }
             />
+            <Route path="we-take" element={<WeTake />} />
               <Route path="query" element={ <QueryForm />} />
               <Route path="profile" element={ <ProfileEdit />} />
             <Route path="pickuplist" element={ <ProtectedRoute><PickupList /></ProtectedRoute>} />

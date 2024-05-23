@@ -6,17 +6,17 @@ function WeTake() {
       <div
         className="text-white text-center d-flex align-items-center justify-content-center"
         style={{
-          backgroundImage: 'url(https://previews.123rf.com/images/somchai999/somchai9992003/somchai999200300066/142294714-green-leaves-background-nature-green-leaf-wall-texture-of-the-tropical-forest-plant-on-black.jpg)',
+          backgroundImage: 'url(https://t4.ftcdn.net/jpg/07/66/01/19/360_F_766011975_FGP3dxr1zJ79UxOTnDaqZT0MH4Elhinl.jpg)',
           backgroundSize: 'cover',
           width: '100%',
           minHeight: '300px',
         }}
       >
-        <h2 className="display-4 font-weight-bolder text-light">What We Take</h2>
+        <h2 className="display-4 font-weight-bolder text-light"style={{ fontWeight: '600' }}>What We Take</h2>
       </div>
       <div className="container pt-4 mt-4">
-        <h2  className="text-start">What We Take: Unlocking the Value of Your Scrap with TipleR'sEcoHub</h2>
-        <p className="text-start">
+        <h2  className=" text-start">What We Take: Unlocking the Value of Your Scrap with TipleR'sEcoHub</h2>
+        <p className="pt-3 text-start">
 
 Welcome to TripleR'sEcoHub, the leading online scrap buyer that empowers individuals and businesses to turn their scrap materials into valuable assets. At Reuze, we understand the untapped potential in discarded items, and we are committed to unlocking their value through responsible recycling and repurposing. In this page, we will explore the wide range of scrap materials we accept at our website, and how you can benefit from selling your scrap to us.</p>
         <p className="text-start">

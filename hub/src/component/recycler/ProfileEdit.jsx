@@ -61,7 +61,7 @@ function ProfileEdit() {
         try {
             const token = localStorage.getItem('loggedIn');
             const recyclerId = JSON.parse(atob(token.split('.')[1])).recyclerId;
-            console.log(recyclerId);
+          
             const response = await axios.put(`${Base_Url}/api/pro/${recyclerId}`, formData, {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -97,7 +97,7 @@ function ProfileEdit() {
     };
 
     return (
-        <Container className="mt-5">
+        <Container className="mt-5 ">
             <Row className="justify-content-center">
                 <Col md={6} className="text-center">
                     <Image 
@@ -112,8 +112,8 @@ function ProfileEdit() {
                     </div>
                 </Col>
                 <Col md={8} className='pt-5 h-100'>
-                    <Card >
-                        <Card.Body className='pt-5 ' >
+                    <Card className=' h-100'>
+                        <Card.Body  >
                             <Card.Title>Profile Details</Card.Title>
                             <Card.Text>
                                 <Col>

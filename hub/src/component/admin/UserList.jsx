@@ -30,9 +30,24 @@ function UserList() {
 
     return (
         <div className='vh-100 vw-100 justify-content-center mt-5 pt-5'>
-            <h2 className="bg-warning p-2 text-center">Consumer Details</h2>
-            <table className='table table-hover border border-3 shadow-sm'>
-                <thead className='table-dark'>
+               <div
+    className="text-white text-center d-flex align-items-center justify-content-center"
+    style={{
+      backgroundImage: 'url(https://t4.ftcdn.net/jpg/07/66/01/19/360_F_766011975_FGP3dxr1zJ79UxOTnDaqZT0MH4Elhinl.jpg)',
+      backgroundSize: 'cover',
+      width: '100%',
+      minHeight: '300px',
+    }}
+  >
+            <h2 className="display-4 font-weight-bolder text-light"style={{ fontWeight: '600' }}>ConsumerList</h2>
+
+    
+    </div>
+    <div className="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+       
+      </div>
+            <table className='table table-bordered  border-3 shadow-sm pt-4'>
+                <thead className='table'>
                     <tr>
                         <th>USERId</th>
                         <th>Name</th>

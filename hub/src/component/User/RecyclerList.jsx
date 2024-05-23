@@ -24,7 +24,7 @@ function RecyclerList() {
     }
 
 
-    console.log('Pincode:', pincode);
+    
 
     try {
     
@@ -44,7 +44,7 @@ function RecyclerList() {
   return (
     <div className='vh-100'>
      
-      <div className='container vw-100 py-6 '  style={{ height:"50%" ,backgroundImage:'url(https://previews.123rf.com/images/somchai999/somchai9992003/somchai999200300066/142294714-green-leaves-background-nature-green-leaf-wall-texture-of-the-tropical-forest-plant-on-black.jpg)'}}>
+      <div className='container vw-100 py-6 '  style={{ height:"50%" ,backgroundImage:'url(https://t4.ftcdn.net/jpg/07/66/01/19/360_F_766011975_FGP3dxr1zJ79UxOTnDaqZT0MH4Elhinl.jpg)'}}>
      
       <div className="search-container p-4  rounded" style={{  borderRadius: '8px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <h2 className='text-white'>Search Recyclers</h2>

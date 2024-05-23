@@ -17,7 +17,7 @@ function AdminProfile() {
             try {
                 const response = await axios.get(`${Base_Url}/api/getadmin`);
                 setUsers(response.data.message);
-                console.log(response.data.message);
+                
             } catch (error) {
                 console.error('Error fetching user profiles', error);
             }

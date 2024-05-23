@@ -39,7 +39,7 @@ function Pickup() {
     if (token) {
       const { userId } = JSON.parse(atob(token.split('.')[1]));
       setDetails({ ...details, user: userId });
-      console.log(userId);
+      
     }
   }, []);
 
@@ -227,7 +227,7 @@ function Pickup() {
   );
 
   const renderDetails = () => (
-    <div className="col-12 col-md-6 offset-md-3">
+    <div >
      
       <PickupDetails pickups={pickups} />
     </div>
@@ -238,13 +238,13 @@ function Pickup() {
     <div
     className="text-white text-center d-flex align-items-center justify-content-center"
     style={{
-      backgroundImage: 'url(https://previews.123rf.com/images/somchai999/somchai9992003/somchai999200300066/142294714-green-leaves-background-nature-green-leaf-wall-texture-of-the-tropical-forest-plant-on-black.jpg)',
+      backgroundImage: 'url(https://t4.ftcdn.net/jpg/07/66/01/19/360_F_766011975_FGP3dxr1zJ79UxOTnDaqZT0MH4Elhinl.jpg)',
       backgroundSize: 'cover',
       width: '100%',
       minHeight: '300px',
     }}
   >
-            <h2 className="display-4 font-weight-bolder text-light">Pickup</h2>
+            <h2 className="display-4 font-weight-bolder text-light"style={{ fontWeight: '600' }}>Pickup</h2>
 
     
     </div>
@@ -253,10 +253,14 @@ function Pickup() {
      
     >
       
-      <div className="container pt-2 ">
+      <div className="container ">
+ 
         <div className="row ">
+          
           <div className="col-12 ">
+            
             <ul className="nav justify-content-center align-items-center ">
+              
               <li className="nav-item ">
                 <button
                   className={`nav-link   ${activeTab === 'schedule' ? 'active' : ''}`}
@@ -265,7 +269,7 @@ function Pickup() {
                   Pickup Schedule
                 </button>
               </li>
-              <li className="nav-item">
+              <li className="nav-item ">
                 <button
                   className={`nav-link ${activeTab === 'details' ? 'active' : ''}`}
                   onClick={() => setActiveTab('details')}

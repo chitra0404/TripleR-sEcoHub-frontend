@@ -97,7 +97,7 @@ function RecyclerDashboard() {
         <div className="row  pt-4 position-relative" style={{ zIndex: 10, borderRadius: '15px' }}>
           <div className="col-md-6">
             <div className="card shadow rounded p-3 m-4">
-              <h1 className="display-5 font-weight-bold">Welcome</h1>
+              <h1 className="display-5 font-weight-bold"style={{ fontWeight: '600' }}>Welcome</h1>
               <p className="lead">
                 In an effort to combat the growing issue of electronic waste (e-waste), our project is dedicated to responsible recycling and disposal. We provide convenient drop-off locations for old electronics, ensuring they are recycled or refurbished, reducing environmental impact and promoting a sustainable future.
               </p>

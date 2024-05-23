@@ -9,6 +9,7 @@ import gsap from "gsap";
 import poster from '../assets/postdark.gif'
 import posterlight from '../assets/post.gif'
 import { useUserType } from '../context/UserTypeContext';
+import RecyclerLoginPage from './RecyclerLoginPage';
 
 
 const LoginPage = () => {
@@ -34,19 +35,7 @@ const LoginPage = () => {
         <div className="col-md-6 pt-5">
           <div className="d-flex justify-content-center align-items-center">
             <h5 className='fw-bold pt-5'>
-              {/* <TypingEffect text="TripleR's EcoHub" colors={['green', 'blue', 'red']} /> */}
-              {/* <br />
-              <br />
-              <span>Refuse what you do not need;</span>
-              <br />
-              <span>reduce what you do need;</span>
-              <br />
-              <span>reuse what you consume;</span>
-              <br />
-              <span>recycle what you cannot refuse, reduce, or reuse;</span>
-              <br />
-              <span>and rot (compost) the rest</span>
-              <br /> */}
+            
               <span><img src={isdark ? (poster) : (posterlight)} className='img-fluid w-50 h-50' /></span>
             </h5>
           </div>
@@ -91,8 +80,12 @@ const LoginPage = () => {
               )}
               {activeTab === 'recycler' && (
                 <div className="tab-pane fade show active">
-                  <Login />
-                </div>
+                <RecyclerLoginPage showRegistration={showRegistration} />
+                <p></p>
+                <Link onClick={handleToggleRegistration}>
+                  {showRegistration ? 'Back to Login ' : ' RecyclerRegistration '}
+                </Link>
+              </div>
               )}
               {activeTab === 'admin' && (
                 <div className="tab-pane fade show active">
